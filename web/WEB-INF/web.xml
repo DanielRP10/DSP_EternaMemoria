@@ -4,8 +4,16 @@
         <servlet-name>ControladorVendedores</servlet-name>
         <servlet-class>Controladores.ControladorVendedores</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorVentas</servlet-name>
+        <servlet-class>Controladores.ControladorVentas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorVendedores</servlet-name>
         <url-pattern>/ControladorVendedores</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorVentas</servlet-name>
+        <url-pattern>/ControladorVentas</url-pattern>
     </servlet-mapping>
 </web-app>
