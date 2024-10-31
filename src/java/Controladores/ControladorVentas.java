@@ -57,7 +57,7 @@ public class ControladorVentas extends HttpServlet {
             acceso=add;
         }
         else if(action.equalsIgnoreCase("Agregar")){
-             String fechaStr = request.getParameter("txtFecha");
+            String fechaStr = request.getParameter("txtFecha");
             LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             double monto= Double.parseDouble(request.getParameter("txtMonto"));
             V.setFecha(fecha);

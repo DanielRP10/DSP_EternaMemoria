@@ -26,7 +26,7 @@
                 Fecha:<br>
                 <input class="form-control" type="date" name="txtFecha" value="<%= V.getFecha()%>"><br>
                 Monto: <br>
-                <input class="form-control" type="number" name="txtMonto" step="0.01" value="<%= V.getMontoTotal()%>"><br>
+                <input class="form-control" type="number" name="txtMonto" step="0.10" value="<%= V.getMontoTotal()%>"><br>
                 
                 <input type="hidden" name="txtid" value="<%= V.getIdVenta()%>">
                 <input class="btn btn-primary" type="submit" name="accion" value="Actualizar"> 

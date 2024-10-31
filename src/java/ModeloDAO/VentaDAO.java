@@ -37,9 +37,7 @@ public class VentaDAO implements CRUDVentas{
             while(rs.next()){
                 Venta vent=new Venta();
                 vent.setIdVenta(rs.getInt("idVenta"));
-                String fechaStr = rs.getString("fecha");
-                LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-                vent.setFecha(fecha);
+                vent.setFecha(rs.getDate("fecha").toLocalDate());
                 vent.setMontoTotal(rs.getDouble("montoTotal"));
                 list.add(vent);
             }

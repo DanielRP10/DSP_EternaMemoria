@@ -20,7 +20,7 @@
                     Fecha:<br>
                     <input class="form-control" type="date" name="txtFecha"><br>
                     Monto: <br>
-                    <input class="form-control" type="number" name="txtMonto" step="0.01"><br>
+                    <input class="form-control" type="number" name="txtMonto" step="0.1"><br>
                     <input class="btn btn-primary" type="submit" name="accion" value="Agregar">
                     <a class="btn btn-primary" href="ControladorVentas?accion=listar">Regresar</a>
                 </form>
