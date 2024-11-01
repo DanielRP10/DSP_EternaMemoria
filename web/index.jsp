@@ -40,25 +40,26 @@
             </div>
 
             <div class="menu-section">
-    <div class="menu-section-title">Operaciones</div>
-    <div class="menu-item dropdown">
-        <a href="#" class="menu-item-toggle" id="ventas-toggle">
-            <i class='bx bx-cart'></i> Ventas <i class='bx bx-chevron-down ms-auto'></i>
-        </a>
-        <div class="dropdown-content" id="ventas-submenu">
-            <a href="ControladorVendedores?accion=listar" class="menu-item">Vendedores</a>
-            <a href="ControladorVentas?accion=listar" class="menu-item">Ventas</a>
-        </div>
-    </div>
-    <a href="https://example.com/compras" class="menu-item">
-        <i class='bx bx-shopping-bag'></i> Compras
-    </a>
-    <a href="https://example.com/cobros" class="menu-item">
-        <i class='bx bx-money'></i> Cobros de Créditos
-    </a>
-    <a href="https://example.com/devoluciones" class="menu-item">
-        <i class='bx bx-revision'></i> Devoluciones
-    </a>
+                <div class="menu-section-title">Operaciones</div>
+                <div class="menu-item dropdown">
+                    <a href="#" class="menu-item-toggle" id="ventas-toggle">
+                        <i class='bx bx-cart'></i> Ventas <i class='bx bx-chevron-down ms-auto'></i>
+                    </a>
+                    <div class="dropdown-content" id="ventas-submenu">
+                        <a href="ControladorVendedores?accion=listar" class="menu-item">Vendedores</a>
+                        <a href="ControladorVentas?accion=listar" class="menu-item">Ventas</a>
+                        <a href="ControladorDetallesVentas?accion=listar" class="menu-item">Detalles de Ventas</a>
+                    </div>
+                </div>
+                <a href="https://example.com/compras" class="menu-item">
+                    <i class='bx bx-shopping-bag'></i> Compras
+                </a>
+                <a href="https://example.com/cobros" class="menu-item">
+                    <i class='bx bx-money'></i> Cobros de Créditos
+                </a>
+                <a href="https://example.com/devoluciones" class="menu-item">
+                    <i class='bx bx-revision'></i> Devoluciones
+                </a>
 </div>
 
             <div class="menu-section">
