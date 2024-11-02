@@ -31,8 +31,8 @@
                 <a href="https://example.com/productos" class="menu-item">
                     <i class='bx bx-package'></i> Productos
                 </a>
-                <a href="https://example.com/categorias" class="menu-item">
-                    <i class='bx bx-category'></i> Categorías
+                <a href="ControladorReservacion?accion=listarReservacion" class="menu-item">
+                    <i class='bx bx-category'></i> Reservaciones
                 </a>
                 <a href="https://example.com/agencias" class="menu-item">
                     <i class='bx bx-building'></i> Agencias
