@@ -46,6 +46,7 @@
                             <div class="dropdown-content" id="ventas-submenu">
                                 <a href="ControladorVendedores?accion=listar" class="menu-item">Vendedores</a>
                                 <a href="ControladorVentas?accion=listar" class="menu-item">Ventas</a>
+                                <a href="ControladorDetallesVentas?accion=listar" class="menu-item">Detalles de Ventas</a>
                             </div>
                         </div>
                         <a href="https://example.com/compras" class="menu-item">

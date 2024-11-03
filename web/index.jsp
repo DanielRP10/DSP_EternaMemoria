@@ -25,7 +25,7 @@
         <div class="sidebar-menu">
             <div class="menu-section">
                 <div class="menu-section-title">Controles</div>
-                <a href="https://example.com/clientes" class="menu-item">
+                <a href="ControladorClientes?accion=listar" class="menu-item">
                     <i class='bx bx-user'></i> Clientes
                 </a>
                 <a href="https://example.com/productos" class="menu-item">

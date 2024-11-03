@@ -1,12 +1,9 @@
 <%-- 
-    Document   : listaReservacion
-    Created on : 1 nov 2024, 15:25:02
-    Author     : predi
+    Document   : addCliente
+    Created on : 2 nov 2024, 19:02:57
+    Author     : Jennifer Tatiana GF
 --%>
-<%@page import="java.util.Iterator"%>
-<%@page import="Modelo.Reservacion"%>
-<%@page import="java.util.List"%>
-<%@page import="ModeloDAO.ReservacionDAO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,7 +23,7 @@
                 <div class="sidebar-menu">
                     <div class="menu-section">
                         <div class="menu-section-title">Controles</div>
-                        <a href="https://example.com/clientes" class="menu-item">
+                        <a href="ControladorClientes?accion=listar" class="menu-item">
                             <i class='bx bx-user'></i> Clientes
                         </a>
                         <a href="https://example.com/productos" class="menu-item">
@@ -122,41 +119,19 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <a class="btn btn-success" href="ControladorReservacion?accion=add">Agregar Nuevo</a>
-                            <br>
-                            <br>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">ID RESERVACION</th>
-                                        <th class="text-center">FECHA</th>
-                                        <th class="text-center">HORA</th>
-                                        <th class="text-center">ID CLIENTE</th>
-                                        <th class="text-center">ACCION</th>
-                                    </tr>
-                                </thead>
-                                <%
-                                    ReservacionDAO dao=new ReservacionDAO();
-                                    List<Reservacion>list=dao.listarReservacion();
-                                    Iterator<Reservacion>iter=list.iterator();
-                                    Reservacion res=null;
-                                    while(iter.hasNext()){
-                                        res=iter.next();
-                                %>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center"><%= res.getIdReservacion()%></td>
-                                        <td class="text-center"><%= res.getFecha()%></td>
-                                        <td class="text-center"><%= res.getHora()%></td>
-                                        <td class="text-center"><%= res.getIdCliente()%></td>
-                                        <td class="text-center">
-                                            <a class="btn btn-warning" href="ControladorReservacion?accion=editar&id=<%= res.getIdReservacion()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorReservacion?accion=eliminar&id=<%= res.getIdReservacion()%>">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
+                            <h1>Agregar Cliente</h1>
+                            <form action="ControladorClientes">
+                                Nombre:<br>
+                                <input class="form-control" type="text" name="txtNombre"><br>
+                                Apellido:<br>
+                                <input class="form-control" type="text" name="txtApellido"><br>
+                                Telefono:<br>
+                                <input class="form-control" type="text" name="txtTelefono"><br>
+                                DUI:<br>
+                                <input class="form-control" type="text" name="txtDUI"><br>
+                                <input class="btn btn-primary" type="submit" name="accion" value="Agregar">
+                                <a class="btn btn-primary" href="ControladorClientes?accion=listar">Regresar</a>
+                            </form>
                         </div>
 
                         <!-- Sección Clientes -->
