@@ -5,43 +5,40 @@
 package ModeloDAO;
 
 import Config.Conexion;
-import Interfaces.CRUDdetallesVentas;
-import Modelo.DetalleVenta;
-import Modelo.Venta;
+import Interfaces.CRUDInventario;
+import Modelo.Inventario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Set;
 /**
  *
  * @author Jennifer Tatiana GF
  */
-public class DetalleVentaDAO implements CRUDdetallesVentas{
+public class InventarioDAO implements CRUDInventario{
     Conexion cn=new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    DetalleVenta dv=new DetalleVenta();
+    Inventario i=new Inventario();
     
     @Override
     public List listar() {
-        ArrayList<DetalleVenta>list=new ArrayList<>();
-        String sql="select * from detalleVentas";
+        ArrayList<Inventario>list=new ArrayList<>();
+        String sql="select * from inventarios";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
             while(rs.next()){
-                DetalleVenta dev=new DetalleVenta();
-                dev.setIdDetalleVentas(rs.getInt("idDetalleVentas"));
-                dev.setDetalleVenta(rs.getString("detalleVenta"));
-                dev.setIdVenta(rs.getInt("idVenta"));
-                dev.setIdProducto(rs.getInt("idProducto"));
-                list.add(dev);
+                Inventario in=new Inventario();
+                in.setIdInventario(rs.getInt("idInventario"));
+                in.setDescripcion(rs.getString("descripcion"));
+                in.setCantidad(rs.getInt("cantidad"));
+                
+                list.add(in);
             }
         } catch (Exception e) {
         }
@@ -49,27 +46,26 @@ public class DetalleVentaDAO implements CRUDdetallesVentas{
     }
     
     @Override
-    public DetalleVenta list(int id) {
-        String sql="select * from detalleVentas where idDetalleVentas="+id;
+    public Inventario list(int id) {
+        String sql="select * from inventarios where idInventario="+id;
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
             while(rs.next()){                
-                dv.setIdDetalleVentas(rs.getInt("idDetalleVentas"));
-                dv.setDetalleVenta(rs.getString("detalleVenta"));
-                dv.setIdVenta(rs.getInt("idVenta"));
-                dv.setIdProducto(rs.getInt("idProducto"));
-                
+                i.setIdInventario(rs.getInt("idInventario"));
+                i.setDescripcion(rs.getString("descripcion"));
+                i.setCantidad(rs.getInt("cantidad"));
+
             }
         } catch (Exception e) {
         }
-        return dv;
+        return i;
     }
 
     @Override
-    public boolean add(DetalleVenta dev) {
-       String sql="insert into detalleVentas(detalleVenta, idVenta, idProducto)values('"+dev.getDetalleVenta()+"','"+dev.getIdVenta()+"','"+dev.getIdProducto()+"')";
+    public boolean add(Inventario in) {
+       String sql="insert into inventarios(descripcion, cantidad)values('"+in.getDescripcion()+"','"+in.getCantidad()+"')";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -80,8 +76,8 @@ public class DetalleVentaDAO implements CRUDdetallesVentas{
     }
 
     @Override
-    public boolean edit(DetalleVenta dev) {
-        String sql="update detalleVentas set detalleVenta='"+dev.getDetalleVenta()+"',idVenta='"+dev.getIdVenta()+"' ,idProducto='"+dev.getIdProducto()+"'  where idDetalleVentas="+dev.getIdDetalleVentas();
+    public boolean edit(Inventario in) {
+        String sql="update inventarios set descripcion='"+in.getDescripcion()+"',cantidad='"+in.getCantidad()+"' where idInventario="+in.getIdInventario();
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -91,9 +87,8 @@ public class DetalleVentaDAO implements CRUDdetallesVentas{
         return false;
     }
 
-    @Override
     public boolean eliminar(int id) {
-        String sql="delete from detalleVentas where idDetalleVentas="+id;
+        String sql="delete from inventarios where idInventario="+id;
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -102,4 +97,5 @@ public class DetalleVentaDAO implements CRUDdetallesVentas{
         }
         return false;
     }
+    
 }

@@ -34,8 +34,8 @@
                 <a href="ControladorReservacion?accion=listarReservacion" class="menu-item">
                     <i class='bx bx-category'></i> Reservaciones
                 </a>
-                <a href="https://example.com/agencias" class="menu-item">
-                    <i class='bx bx-building'></i> Agencias
+                <a href="ControladorInventarios?accion=listar" class="menu-item">
+                    <i class='bx bx-building'></i>Inventarios
                 </a>
             </div>
 

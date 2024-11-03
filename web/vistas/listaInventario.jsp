@@ -1,12 +1,12 @@
 <%-- 
-    Document   : listaVentas
-    Created on : 31 oct 2024, 13:08:14
+    Document   : listaInventario
+    Created on : 3 nov 2024, 14:57:24
     Author     : Jennifer Tatiana GF
 --%>
 <%@page import="java.util.Iterator"%>
-<%@page import="Modelo.Venta"%>
+<%@page import="Modelo.Inventario"%>
 <%@page import="java.util.List"%>
-<%@page import="ModeloDAO.VentaDAO"%>
+<%@page import="ModeloDAO.InventarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,8 +35,8 @@
                         <a href="ControladorReservacion?accion=listarReservacion" class="menu-item">
                             <i class='bx bx-category'></i> Reservaciones
                         </a>
-                        <a href="https://example.com/agencias" class="menu-item">
-                            <i class='bx bx-building'></i> Agencias
+                        <a href="ControladorInventarios?accion=listar" class="menu-item">
+                            <i class='bx bx-building'></i>Inventarios
                         </a>
                     </div>
 
@@ -105,7 +105,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Lista de Ventas</h5>
+                            <h5 class="mb-0">Lista de Inventario</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -122,39 +122,35 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <a class="btn btn-success" href="ControladorVentas?accion=add">Agregar Nuevo</a>
+                            <a class="btn btn-success" href="ControladorInventarios?accion=add">Agregar Nuevo</a>
                             <br>
                             <br>
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">ID VENTA</th>
-                                        <th class="text-center">FECHA</th>
-                                        <th class="text-center">MONTO</th>
-                                        <th class="text-center">ID CLIENTE</th>
-                                        <th class="text-center">ID CONTRATO</th>
+                                        <th class="text-center">ID INVENTARIO</th>
+                                        <th class="text-center">DESCRIPCION</th>
+                                        <th class="text-center">CANTIDAD</th>
                                         <th class="text-center">ACCIONES</th>
                                     </tr>
                                 </thead>
                                 <%
-                                    VentaDAO dao=new VentaDAO();
-                                    List<Venta>list=dao.listar();
-                                    Iterator<Venta>iter=list.iterator();
-                                    Venta vent=null;
+                                    InventarioDAO dao=new InventarioDAO();
+                                    List<Inventario>list=dao.listar();
+                                    Iterator<Inventario>iter=list.iterator();
+                                    Inventario in=null;
                                     while(iter.hasNext()){
-                                        vent=iter.next();
+                                        in=iter.next();
 
                                 %>
                                 <tbody>
                                     <tr>
-                                        <td class="text-center"><%= vent.getIdVenta()%></td>
-                                        <td class="text-center"><%= vent.getFecha()%></td>
-                                        <td><%= vent.getMontoTotal()%></td>
-                                        <td class="text-center"><%= vent.getIdCliente()%></td>
-                                        <td class="text-center"><%= vent.getIdContrato()%></td>
+                                        <td class="text-center"><%= in.getIdInventario()%></td>
+                                        <td class="text-center"><%= in.getDescripcion()%></td>
+                                        <td><%= in.getCantidad()%></td>
                                         <td class="text-center">
-                                            <a class="btn btn-warning" href="ControladorVentas?accion=editar&id=<%= vent.getIdVenta()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorVentas?accion=eliminar&id=<%= vent.getIdVenta()%>">Eliminar</a>
+                                            <a class="btn btn-warning" href="ControladorInventarios?accion=editar&id=<%= in.getIdInventario()%>">Editar</a>
+                                            <a class="btn btn-danger" href="ControladorInventarios?accion=eliminar&id=<%= in.getIdInventario()%>">Eliminar</a>
                                         </td>
                                     </tr>
                                     <%}%>

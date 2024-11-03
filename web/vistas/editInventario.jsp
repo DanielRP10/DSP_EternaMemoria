@@ -1,12 +1,10 @@
 <%-- 
-    Document   : listaVentas
-    Created on : 31 oct 2024, 13:08:14
+    Document   : editInventario
+    Created on : 3 nov 2024, 14:57:59
     Author     : Jennifer Tatiana GF
 --%>
-<%@page import="java.util.Iterator"%>
-<%@page import="Modelo.Venta"%>
-<%@page import="java.util.List"%>
-<%@page import="ModeloDAO.VentaDAO"%>
+<%@page import="Modelo.Inventario"%>
+<%@page import="ModeloDAO.InventarioDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -105,7 +103,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Lista de Ventas</h5>
+                            <h5 class="mb-0">Lista de Inventario</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -122,44 +120,23 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <a class="btn btn-success" href="ControladorVentas?accion=add">Agregar Nuevo</a>
-                            <br>
-                            <br>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">ID VENTA</th>
-                                        <th class="text-center">FECHA</th>
-                                        <th class="text-center">MONTO</th>
-                                        <th class="text-center">ID CLIENTE</th>
-                                        <th class="text-center">ID CONTRATO</th>
-                                        <th class="text-center">ACCIONES</th>
-                                    </tr>
-                                </thead>
-                                <%
-                                    VentaDAO dao=new VentaDAO();
-                                    List<Venta>list=dao.listar();
-                                    Iterator<Venta>iter=list.iterator();
-                                    Venta vent=null;
-                                    while(iter.hasNext()){
-                                        vent=iter.next();
+                              <%
+                                InventarioDAO dao=new InventarioDAO();
+                                int id=Integer.parseInt((String)request.getAttribute("idI"));
+                                Inventario i=(Inventario)dao.list(id);
+                              %>
+                              <h1>Modificar Inventario</h1>
+                              <form action="ControladorInventarios">
+                                  Descripcion:<br>
+                                  <input class="form-control" type="text" name="txtDes" value="<%= i.getDescripcion()%>"><br>
+                                  Cantidad: <br>
+                                  <input class="form-control" type="number" name="txtC" value="<%= i.getCantidad()%>"><br>
 
-                                %>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center"><%= vent.getIdVenta()%></td>
-                                        <td class="text-center"><%= vent.getFecha()%></td>
-                                        <td><%= vent.getMontoTotal()%></td>
-                                        <td class="text-center"><%= vent.getIdCliente()%></td>
-                                        <td class="text-center"><%= vent.getIdContrato()%></td>
-                                        <td class="text-center">
-                                            <a class="btn btn-warning" href="ControladorVentas?accion=editar&id=<%= vent.getIdVenta()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorVentas?accion=eliminar&id=<%= vent.getIdVenta()%>">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
+                                  <input type="hidden" name="txtid" value="<%= i.getIdInventario()%>">
+                                  <input class="btn btn-primary" type="submit" name="accion" value="Actualizar"> 
+                                  <a class="btn btn-primary"  href="ControladorInventarios?accion=listar">Regresar</a>
+                              </form>
+
                         </div>
 
                         <!-- Sección Clientes -->

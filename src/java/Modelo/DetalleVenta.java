@@ -11,10 +11,14 @@ package Modelo;
 public class DetalleVenta {
     int idDetalleVentas;
     String detalleVenta;
+    int idVenta;
+    int idProducto;
 
-    public DetalleVenta(int idDetalleVentas, String detalleVenta) {
+    public DetalleVenta(int idDetalleVentas, String detalleVenta, int idVenta, int idProducto) {
         this.idDetalleVentas = idDetalleVentas;
         this.detalleVenta = detalleVenta;
+        this.idVenta = idVenta;
+        this.idProducto = idProducto;
     }
     
     public DetalleVenta(){
@@ -35,6 +39,22 @@ public class DetalleVenta {
 
     public void setDetalleVenta(String detalleVenta) {
         this.detalleVenta = detalleVenta;
+    }
+
+    public int getIdVenta() {
+        return idVenta;
+    }
+
+    public void setIdVenta(int idVenta) {
+        this.idVenta = idVenta;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
     
     

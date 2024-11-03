@@ -4,8 +4,8 @@
  */
 package Controladores;
 
-import Modelo.DetalleVenta;
-import ModeloDAO.DetalleVentaDAO;
+import Modelo.Inventario;
+import ModeloDAO.InventarioDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,12 +18,12 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author Jennifer Tatiana GF
  */
-public class ControladorDetallesVentas extends HttpServlet {
-    String listar="vistas/listadetVentas.jsp";
-    String add="vistas/adddetVentas.jsp";
-    String edit="vistas/editdetVentas.jsp";
-    DetalleVenta dv=new DetalleVenta();
-    DetalleVentaDAO dao=new DetalleVentaDAO();
+public class ControladorInventarios extends HttpServlet {
+    String listar="vistas/listaInventario.jsp";
+    String add="vistas/addInventario.jsp";
+    String edit="vistas/editInventario.jsp";
+    Inventario i=new Inventario();
+    InventarioDAO dao=new InventarioDAO();
     int id;
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -34,10 +34,10 @@ public class ControladorDetallesVentas extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ControladorDetallesVentas</title>");            
+            out.println("<title>Servlet ControladorInventarios</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ControladorDetallesVentas at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ControladorInventarios at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -55,37 +55,31 @@ public class ControladorDetallesVentas extends HttpServlet {
             acceso=add;
         }
         else if(action.equalsIgnoreCase("Agregar")){
-            String dtv = request.getParameter("txtdetalleVenta");
-            int idVent = Integer.parseInt(request.getParameter("txtIdV"));
-            int idPro = Integer.parseInt(request.getParameter("txtIdP"));
-            dv.setDetalleVenta(dtv);
-            dv.setIdVenta(idVent);
-            dv.setIdProducto(idPro);
-            
-            dao.add(dv);
-            
+            String des=request.getParameter("txtDes");
+            int can = Integer.parseInt(request.getParameter("txtC"));
+            i.setDescripcion(des);
+            i.setCantidad(can);
+            dao.add(i);
             acceso=listar;
         }
         else if(action.equalsIgnoreCase("editar")){
-            request.setAttribute("iddev",request.getParameter("id"));
+            request.setAttribute("idI",request.getParameter("id"));
             acceso=edit;
         }
         
         else if(action.equalsIgnoreCase("Actualizar")){
             id=Integer.parseInt(request.getParameter("txtid"));
-            String detalleV = request.getParameter("txtdetalleVenta");
-            int idVent = Integer.parseInt(request.getParameter("txtIdV"));
-            int idPro = Integer.parseInt(request.getParameter("txtIdP"));
-            dv.setIdDetalleVentas(id);
-            dv.setDetalleVenta(detalleV);
-            dv.setIdVenta(idVent);
-            dv.setIdProducto(idPro);
-            dao.edit(dv);
+            String des=request.getParameter("txtDes");
+            int can = Integer.parseInt(request.getParameter("txtC"));
+            i.setIdInventario(id);
+            i.setDescripcion(des);
+            i.setCantidad(can);
+            dao.edit(i);
             acceso=listar;
         }
         else if(action.equalsIgnoreCase("eliminar")){
             id=Integer.parseInt(request.getParameter("id"));
-            dv.setIdDetalleVentas(id);
+            i.setIdInventario(id);
             dao.eliminar(id);
             acceso=listar;
         }
@@ -105,4 +99,5 @@ public class ControladorDetallesVentas extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+   
 }

@@ -39,6 +39,8 @@ public class VentaDAO implements CRUDVentas{
                 vent.setIdVenta(rs.getInt("idVenta"));
                 vent.setFecha(rs.getDate("fecha").toLocalDate());
                 vent.setMontoTotal(rs.getDouble("montoTotal"));
+                vent.setIdCliente(rs.getInt("idCliente"));
+                vent.setIdContrato(rs.getInt("idContrato"));
                 list.add(vent);
             }
         } catch (Exception e) {
@@ -58,6 +60,8 @@ public class VentaDAO implements CRUDVentas{
                 String fechaStr = rs.getString("fecha");
                 LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
                 V.setMontoTotal(rs.getDouble("montoTotal"));
+                V.setIdCliente(rs.getInt("idCliente"));
+                V.setIdContrato(rs.getInt("idContrato"));
                 V.setFecha(fecha);
                 
             }
@@ -68,7 +72,7 @@ public class VentaDAO implements CRUDVentas{
 
     @Override
     public boolean add(Venta vent) {
-       String sql="insert into Ventas(fecha, montoTotal)values('"+vent.getFecha()+"','"+vent.getMontoTotal()+"')";
+       String sql="insert into Ventas(fecha, montoTotal, idCliente, idContrato)values('"+vent.getFecha()+"','"+vent.getMontoTotal()+"', '"+vent.getIdCliente()+"', '"+vent.getIdContrato()+"')";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -80,7 +84,7 @@ public class VentaDAO implements CRUDVentas{
 
     @Override
     public boolean edit(Venta vent) {
-        String sql="update Ventas set fecha='"+vent.getFecha()+"',montoTotal='"+vent.getMontoTotal()+"' where idVenta="+vent.getIdVenta();
+        String sql="update Ventas set fecha='"+vent.getFecha()+"',montoTotal='"+vent.getMontoTotal()+"',idCliente='"+vent.getIdCliente()+"',idContrato='"+vent.getIdContrato()+"' where idVenta="+vent.getIdVenta();
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);

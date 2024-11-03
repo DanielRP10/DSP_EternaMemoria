@@ -60,8 +60,12 @@ public class ControladorVentas extends HttpServlet {
             String fechaStr = request.getParameter("txtFecha");
             LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             double monto= Double.parseDouble(request.getParameter("txtMonto"));
+            int idCli = Integer.parseInt(request.getParameter("txtIdCli"));
+            int idCon = Integer.parseInt(request.getParameter("txtIdCon"));
             V.setFecha(fecha);
             V.setMontoTotal(monto);
+            V.setIdCliente(idCli);
+            V.setIdContrato(idCon);
             dao.add(V);
             acceso=listar;
         }
@@ -75,9 +79,13 @@ public class ControladorVentas extends HttpServlet {
             String fechaStr = request.getParameter("txtFecha");
             LocalDate fecha = LocalDate.parse(fechaStr, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             double monto= Double.parseDouble(request.getParameter("txtMonto"));
+            int idCli = Integer.parseInt(request.getParameter("txtIdCli"));
+            int idCon = Integer.parseInt(request.getParameter("txtIdCon"));
             V.setIdVenta(id);
             V.setFecha(fecha);
             V.setMontoTotal(monto);
+            V.setIdCliente(idCli);
+            V.setIdContrato(idCon);
             dao.edit(V);
             acceso=listar;
         }

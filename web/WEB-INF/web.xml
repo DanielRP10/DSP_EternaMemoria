@@ -20,6 +20,10 @@
         <servlet-name>ControladorClientes</servlet-name>
         <servlet-class>Controladores.ControladorClientes</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorInventarios</servlet-name>
+        <servlet-class>Controladores.ControladorInventarios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorVendedores</servlet-name>
         <url-pattern>/ControladorVendedores</url-pattern>
@@ -39,5 +43,9 @@
     <servlet-mapping>
         <servlet-name>ControladorClientes</servlet-name>
         <url-pattern>/ControladorClientes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorInventarios</servlet-name>
+        <url-pattern>/ControladorInventarios</url-pattern>
     </servlet-mapping>
 </web-app>

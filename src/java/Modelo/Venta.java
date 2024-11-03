@@ -14,11 +14,15 @@ public class Venta {
     int idVenta;
     LocalDate fecha;
     Double montoTotal;
+    int idCliente;
+    int idContrato;
 
-    public Venta(int idVenta, LocalDate fecha, Double montoTotal) {
+    public Venta(int idVenta, LocalDate fecha, Double montoTotal, int idCliente, int idContrato) {
         this.idVenta = idVenta;
         this.fecha = fecha;
         this.montoTotal = montoTotal;
+        this.idCliente = idCliente;
+        this.idContrato = idContrato;
     }
 
     public Venta(){
@@ -48,6 +52,21 @@ public class Venta {
     public void setMontoTotal(Double montoTotal) {
         this.montoTotal = montoTotal;
     }
-    
-    
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public int getIdContrato() {
+        return idContrato;
+    }
+
+    public void setIdContrato(int idContrato) {
+        this.idContrato = idContrato;
+    }
+       
 }
