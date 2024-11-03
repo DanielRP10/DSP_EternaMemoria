@@ -72,7 +72,7 @@ public class ControladorClientes extends HttpServlet {
         }
         
         else if(action.equalsIgnoreCase("Actualizar")){
-            int idCl=Integer.parseInt(request.getParameter("txtid"));
+            int idCl=Integer.parseInt(request.getParameter("txtidC"));
             String nombre=request.getParameter("txtNombre");
             String apellido = request.getParameter("txtApellido");
             String telefono=request.getParameter("txtTelefono");
@@ -85,6 +85,7 @@ public class ControladorClientes extends HttpServlet {
             dao.edit(c);
             acceso=listar;
         }
+        
         else if(action.equalsIgnoreCase("eliminar")){
             id=Integer.parseInt(request.getParameter("id"));
             c.setIdCliente(id);

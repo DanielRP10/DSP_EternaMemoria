@@ -136,7 +136,7 @@
                                 DUI:<br>
                                 <input class="form-control" type="text" name="txtDUI" value="<%= c.getDui()%>"><br>
                                 
-                                <input type="hidden" name="txtid" value="<%= c.getIdCliente()%>">
+                                <input type="hidden" name="txtidC" value="<%= c.getIdCliente() %>">
                                 <input class="btn btn-primary" type="submit" name="accion" value="Actualizar">
                                 <a class="btn btn-primary" href="ControladorClientes?accion=listar">Regresar</a>
                             </form>

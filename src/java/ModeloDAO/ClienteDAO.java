@@ -56,7 +56,8 @@ public class ClienteDAO implements CRUDCliente{
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
-            while(rs.next()){                
+            while(rs.next()){         
+                c.setIdCliente(rs.getInt("idCliente"));
                 c.setNombre(rs.getString("nombre"));
                 c.setApellido(rs.getString("apellido"));
                 c.setTelefono(rs.getString("telefono"));
@@ -70,7 +71,11 @@ public class ClienteDAO implements CRUDCliente{
 
     @Override
     public boolean add(Cliente cl) {
-       String sql="insert into clientes(nombre, apellido, telefono, dui)values('"+cl.getNombre()+"','"+cl.getApellido()+"','"+cl.getTelefono()+"', '"+cl.getDui()+"')";
+       String sql = "INSERT INTO clientes(nombre, apellido, telefono, dui) VALUES ('" 
+              + cl.getNombre() + "', '" 
+              + cl.getApellido() + "', '" 
+              + cl.getTelefono() + "', '" 
+              + cl.getDui() + "')";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -87,7 +92,12 @@ public class ClienteDAO implements CRUDCliente{
      */
     @Override
     public boolean edit(Cliente cl) {
-        String sql="update clientes set nombre='"+cl.getNombre()+"',apellido='"+cl.getApellido()+"',telefono='"+cl.getTelefono()+"',dui='"+cl.getDui()+"' where idCliente="+cl.getIdCliente();
+        String sql = "UPDATE clientes SET nombre='" 
+              + cl.getNombre() + "', apellido='" 
+              + cl.getApellido() + "', telefono='" 
+              + cl.getTelefono() + "', dui='" 
+              + cl.getDui() + "' WHERE idCliente=" 
+              + cl.getIdCliente();
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
