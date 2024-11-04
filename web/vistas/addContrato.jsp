@@ -1,10 +1,9 @@
 <%-- 
-    Document   : editReservacion
-    Created on : 1 nov 2024, 15:40:03
+    Document   : addContrato
+    Created on : 3 nov 2024, 19:32:13
     Author     : predi
 --%>
-<%@page import="Modelo.Reservacion"%>
-<%@page import="ModeloDAO.ReservacionDAO"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,7 +102,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Modificar Reservaciones</h5>
+                            <h5 class="mb-0">Agregar Contrato</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -120,21 +119,17 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <%
-                                ReservacionDAO dao=new ReservacionDAO();
-                                int id=Integer.parseInt((String)request.getAttribute("idRe"));
-                                Reservacion r=(Reservacion)dao.list(id);
-                             %>
-                            <form action="ControladorReservacion">
-                                Fecha:<br>
-                                <input class="form-control" type="date" name="txtFecha" value="<%= r.getFecha()%>"><br>
-                                Hora: <br>
-                                <input class="form-control" type="time" name="txtHora" value="<%= r.getHora()%>"><br>
+                            <form action="ControladorContrato">
+                                Fecha de Contrato:<br>
+                                <input class="form-control" type="date" name="txtFechaContrato"><br>
                                 ID Cliente: <br>
-                                <input class="form-control" type="text" name="txtIdCli" value="<%= r.getIdCliente()%>"><br>
-                                <input type="hidden" name="txtIdReser" value="<%= r.getIdReservacion()%>">
-                                <input class="btn btn-primary" type="submit" name="accion" value="Actualizar">
-                                <a class="btn btn-primary" href="ControladorReservacion?accion=listarReservacion">Regresar</a>
+                                <input class="form-control" type="text" name="txtIdCli"><br>
+                                ID Plan: <br>
+                                <input class="form-control" type="text" name="txtIdPlan"><br>
+                                ID Vendedor: <br>
+                                <input class="form-control" type="text" name="txtIdVendedor"><br>
+                                <input class="btn btn-primary" type="submit" name="accion" value="Agregar">
+                                <a class="btn btn-primary" href="ControladorContrato?accion=listarContrato">Regresar</a>
                             </form>
                         </div>
 

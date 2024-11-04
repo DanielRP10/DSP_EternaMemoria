@@ -29,8 +29,8 @@
                         <a href="ControladorClientes?accion=listar" class="menu-item">
                             <i class='bx bx-user'></i> Clientes
                         </a>
-                        <a href="https://example.com/productos" class="menu-item">
-                            <i class='bx bx-package'></i> Productos
+                        <a hre<a href="ControladorContrato?accion=listarContrato" class="menu-item">
+                            <i class='bx bx-task'></i> Contrato
                         </a>
                         <a href="ControladorReservacion?accion=listarReservacion" class="menu-item">
                             <i class='bx bx-category'></i> Reservaciones

@@ -26,8 +26,8 @@
                         <a href="https://example.com/clientes" class="menu-item">
                             <i class='bx bx-user'></i> Clientes
                         </a>
-                        <a href="https://example.com/productos" class="menu-item">
-                            <i class='bx bx-package'></i> Productos
+                        <a href="ControladorContrato?accion=listarContrato" class="menu-item">
+                            <i class='bx bx-task'></i> Contrato
                         </a>
                         <a href="ControladorReservacion?accion=listarReservacion" class="menu-item">
                             <i class='bx bx-category'></i> Reservaciones
@@ -102,7 +102,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Lista de Reservaciones</h5>
+                            <h5 class="mb-0">Agregar Reservaciones</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -119,7 +119,6 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <h1>Agregar Venta</h1>
                             <form action="ControladorReservacion">
                                 Fecha:<br>
                                 <input class="form-control" type="date" name="txtFecha"><br>

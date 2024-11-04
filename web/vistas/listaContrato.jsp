@@ -1,10 +1,12 @@
 <%-- 
-    Document   : editReservacion
-    Created on : 1 nov 2024, 15:40:03
+    Document   : listaContrato
+    Created on : 3 nov 2024, 19:31:58
     Author     : predi
 --%>
-<%@page import="Modelo.Reservacion"%>
-<%@page import="ModeloDAO.ReservacionDAO"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="Modelo.Contrato"%>
+<%@page import="java.util.List"%>
+<%@page import="ModeloDAO.ContratoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -103,7 +105,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Modificar Reservaciones</h5>
+                            <h5 class="mb-0">Lista de Contrato</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -120,22 +122,43 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <%
-                                ReservacionDAO dao=new ReservacionDAO();
-                                int id=Integer.parseInt((String)request.getAttribute("idRe"));
-                                Reservacion r=(Reservacion)dao.list(id);
-                             %>
-                            <form action="ControladorReservacion">
-                                Fecha:<br>
-                                <input class="form-control" type="date" name="txtFecha" value="<%= r.getFecha()%>"><br>
-                                Hora: <br>
-                                <input class="form-control" type="time" name="txtHora" value="<%= r.getHora()%>"><br>
-                                ID Cliente: <br>
-                                <input class="form-control" type="text" name="txtIdCli" value="<%= r.getIdCliente()%>"><br>
-                                <input type="hidden" name="txtIdReser" value="<%= r.getIdReservacion()%>">
-                                <input class="btn btn-primary" type="submit" name="accion" value="Actualizar">
-                                <a class="btn btn-primary" href="ControladorReservacion?accion=listarReservacion">Regresar</a>
-                            </form>
+                            <a class="btn btn-success" href="ControladorContrato?accion=add">Agregar Nuevo</a>
+                            <br>
+                            <br>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ID CONTRATO</th>
+                                        <th class="text-center">FECHAcONTRATO</th>
+                                        <th class="text-center">ID CLIENTE</th>
+                                        <th class="text-center">ID PLAN</th>
+                                        <th class="text-center">ID VENDEDOR</th>
+                                        <th class="text-center">ACCION</th>
+                                    </tr>
+                                </thead>
+                                <%
+                                    ContratoDAO dao=new ContratoDAO();
+                                    List<Contrato>list=dao.listarContrato();
+                                    Iterator<Contrato>iter=list.iterator();
+                                    Contrato contra=null;
+                                    while(iter.hasNext()){
+                                        contra=iter.next();
+                                %>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center"><%= contra.getIdContrato()%></td>
+                                        <td class="text-center"><%= contra.getFechaContrato()%></td>
+                                        <td class="text-center"><%= contra.getIdCliente()%></td>
+                                        <td class="text-center"><%= contra.getIdPlan()%></td>
+                                        <td class="text-center"><%= contra.getIdVendedor()%></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning" href="ControladorContrato?accion=editar&id=<%= contra.getIdContrato()%>">Editar</a>
+                                            <a class="btn btn-danger" href="ControladorContrato?accion=eliminar&id=<%= contra.getIdContrato()%>">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                                </tbody>
+                            </table>
                         </div>
 
                         <!-- Sección Clientes -->
