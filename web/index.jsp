@@ -104,7 +104,7 @@
         <header class="header">
             <div class="d-flex justify-content-between w-100">
                 <div>
-                    <h5 class="mb-0">Bienvenido, Administrador</h5>
+                    <h5 class="mb-0">Bienvenidos, Administrador</h5>
                 </div>
                 <div>
                     <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
