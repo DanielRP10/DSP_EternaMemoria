@@ -49,6 +49,7 @@
                         <a href="ControladorVendedores?accion=listar" class="menu-item">Vendedores</a>
                         <a href="ControladorVentas?accion=listar" class="menu-item">Ventas</a>
                         <a href="ControladorDetallesVentas?accion=listar" class="menu-item">Detalles de Ventas</a>
+                        <a href="ControladorPlan?accion=listarPlan" class="menu-item">Plan</a>
                     </div>
                 </div>
                 <a href="https://example.com/compras" class="menu-item">

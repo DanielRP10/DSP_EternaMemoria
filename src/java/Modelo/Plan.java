@@ -11,15 +11,15 @@ package Modelo;
 public class Plan {
     int idPlan;
     String nombrePlan;
-    String descrip;
+    String descrion;
     double precio;
 
     public Plan() {
     }
 
-    public Plan( String nombrePlan, String descrip, double precio) {
+    public Plan( String nombrePlan, String descrion, double precio) {
         this.nombrePlan = nombrePlan;
-        this.descrip = descrip;
+        this.descrion = descrion;
         this.precio = precio;
     }
 
@@ -39,12 +39,12 @@ public class Plan {
         this.nombrePlan = nombrePlan;
     }
 
-    public String getDescrip() {
-        return descrip;
+    public String getDescripcion() {
+        return descrion;
     }
 
-    public void setDescrip(String descrip) {
-        this.descrip = descrip;
+    public void setDescripcion(String descrion) {
+        this.descrion = descrion;
     }
 
     public double getPrecio() {
