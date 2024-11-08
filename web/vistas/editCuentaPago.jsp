@@ -1,10 +1,11 @@
 <%-- 
-    Document   : editCliente
-    Created on : 2 nov 2024, 19:03:07
-    Author     : Jennifer Tatiana GF
+    Document   : aditCuentaPago
+    Created on : 7 nov 2024, 10:22:47
+    Author     : predi
 --%>
-<%@page import="Modelo.Cliente"%>
-<%@page import="ModeloDAO.ClienteDAO"%>
+
+<%@page import="Modelo.CuentaPago"%>
+<%@page import="ModeloDAO.CuentaPagoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,7 +25,7 @@
                 <div class="sidebar-menu">
                     <div class="menu-section">
                         <div class="menu-section-title">Controles</div>
-                        <a href="ControladorClientes?accion=listar" class="menu-item">
+                        <a href="https://example.com/clientes" class="menu-item">
                             <i class='bx bx-user'></i> Clientes
                         </a>
                         <a href="ControladorContrato?accion=listarContrato" class="menu-item">
@@ -105,7 +106,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Lista de Reservaciones</h5>
+                            <h5 class="mb-0">Modificar Reservaciones</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -123,24 +124,22 @@
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
                             <%
-                                ClienteDAO dao=new ClienteDAO();
-                                int id=Integer.parseInt((String)request.getAttribute("idCli"));
-                                Cliente c=(Cliente)dao.list(id);
+                                CuentaPagoDAO dao=new CuentaPagoDAO();
+                                int id=Integer.parseInt((String)request.getAttribute("idPago"));
+                                CuentaPago c=(CuentaPago)dao.list(id);
                              %>
-                            <h1>Modificar Cliente</h1>
-                            <form action="ControladorClientes">
-                                Nombre:<br>
-                                <input class="form-control" type="text" name="txtNombre" value="<%= c.getNombre()%>"><br>
-                                Apellido:<br>
-                                <input class="form-control" type="text" name="txtApellido" value="<%= c.getApellido()%>"><br>
-                                Telefono:<br>
-                                <input class="form-control" type="text" name="txtTelefono" value="<%= c.getTelefono()%>"><br>
-                                DUI:<br>
-                                <input class="form-control" type="text" name="txtDUI" value="<%= c.getDui()%>"><br>
-                                
-                                <input type="hidden" name="txtidC" value="<%= c.getIdCliente() %>">
+                            <form action="ControladorCuentaPago">
+                                Fecha:<br>
+                                <input class="form-control" type="date" name="txtFecha" value="<%= c.getFecha()%>"><br>
+                                Monto: <br>
+                                <input class="form-control" type="text" name="txtMonto" value="<%= c.getMonto()%>"><br>
+                                N° Cuota <br>
+                                <input class="form-control" type="text" name="txtNumeroCuota" value="<%= c.getNumeroCuotas()%>"><br>
+                                ID Contrato: <br>
+                                <input class="form-control" type="text" name="txtIdContrato" value="<%= c.getIdContrato()%>"><br>
+                                <input type="hidden" name="txtIdCuentaPago" value="<%= c.getIdCuentaPago()%>">
                                 <input class="btn btn-primary" type="submit" name="accion" value="Actualizar">
-                                <a class="btn btn-primary" href="ControladorClientes?accion=listar">Regresar</a>
+                                <a class="btn btn-primary" href="ControladorCuentaPago?accion=listarCuentaPago">Regresar</a>
                             </form>
                         </div>
 
@@ -167,3 +166,4 @@
         </script>
     </body>
 </html>
+

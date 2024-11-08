@@ -1,10 +1,13 @@
 <%-- 
-    Document   : editCliente
-    Created on : 2 nov 2024, 19:03:07
-    Author     : Jennifer Tatiana GF
+    Document   : listaDetallePlan
+    Created on : 7 nov 2024, 17:31:15
+    Author     : predi
 --%>
-<%@page import="Modelo.Cliente"%>
-<%@page import="ModeloDAO.ClienteDAO"%>
+
+<%@page import="java.util.Iterator"%>
+<%@page import="Modelo.DetallePlan"%>
+<%@page import="java.util.List"%>
+<%@page import="ModeloDAO.DetallePlanDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,7 +27,7 @@
                 <div class="sidebar-menu">
                     <div class="menu-section">
                         <div class="menu-section-title">Controles</div>
-                        <a href="ControladorClientes?accion=listar" class="menu-item">
+                        <a href="https://example.com/clientes" class="menu-item">
                             <i class='bx bx-user'></i> Clientes
                         </a>
                         <a href="ControladorContrato?accion=listarContrato" class="menu-item">
@@ -105,7 +108,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Lista de Reservaciones</h5>
+                            <h5 class="mb-0">Lista de DetallePlan</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -122,26 +125,45 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <%
-                                ClienteDAO dao=new ClienteDAO();
-                                int id=Integer.parseInt((String)request.getAttribute("idCli"));
-                                Cliente c=(Cliente)dao.list(id);
-                             %>
-                            <h1>Modificar Cliente</h1>
-                            <form action="ControladorClientes">
-                                Nombre:<br>
-                                <input class="form-control" type="text" name="txtNombre" value="<%= c.getNombre()%>"><br>
-                                Apellido:<br>
-                                <input class="form-control" type="text" name="txtApellido" value="<%= c.getApellido()%>"><br>
-                                Telefono:<br>
-                                <input class="form-control" type="text" name="txtTelefono" value="<%= c.getTelefono()%>"><br>
-                                DUI:<br>
-                                <input class="form-control" type="text" name="txtDUI" value="<%= c.getDui()%>"><br>
-                                
-                                <input type="hidden" name="txtidC" value="<%= c.getIdCliente() %>">
-                                <input class="btn btn-primary" type="submit" name="accion" value="Actualizar">
-                                <a class="btn btn-primary" href="ControladorClientes?accion=listar">Regresar</a>
-                            </form>
+                            <a class="btn btn-success" href="ControladorDetallePlan?accion=add">Agregar Nuevo</a>
+                            <br>
+                            <br>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">ID DETALLE</th>
+                                        <th class="text-center">NOMBRE</th>
+                                        <th class="text-center">DESCRIPCION</th>
+                                        <th class="text-center">CANTIDAD</th>
+                                        <th class="text-center">ID PRODUCTO</th>
+                                        <th class="text-center">ID PLAN</th>
+                                        <th class="text-center">ACCION</th>
+                                    </tr>
+                                </thead>
+                                <%
+                                    DetallePlanDAO dao=new DetallePlanDAO();
+                                    List<DetallePlan>list=dao.listarDetallePlan();
+                                    Iterator<DetallePlan>iter=list.iterator();
+                                    DetallePlan dp=null;
+                                    while(iter.hasNext()){
+                                        dp=iter.next();
+                                %>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center"><%= dp.getIdDetallePlanes()%></td>
+                                        <td class="text-center"><%= dp.getNombreDetallePlan()%></td>
+                                        <td class="text-center"><%= dp.getDescripcion()%></td>
+                                        <td class="text-center"><%= dp.getCantidad()%></td>
+                                        <td class="text-center"><%= dp.getIdProducto()%></td>
+                                        <td class="text-center"><%= dp.getIdPlan()%></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-warning" href="ControladorDetallePlan?accion=editar&id=<%= dp.getIdDetallePlanes()%>">Editar</a>
+                                            <a class="btn btn-danger" href="ControladorDetallePlan?accion=eliminar&id=<%= dp.getIdDetallePlanes()%>">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                                </tbody>
+                            </table>
                         </div>
 
                         <!-- Sección Clientes -->
@@ -167,3 +189,4 @@
         </script>
     </body>
 </html>
+

@@ -1,10 +1,10 @@
 <%-- 
-    Document   : editCliente
-    Created on : 2 nov 2024, 19:03:07
-    Author     : Jennifer Tatiana GF
+    Document   : addCuentaPago
+    Created on : 7 nov 2024, 10:22:29
+    Author     : predi
 --%>
-<%@page import="Modelo.Cliente"%>
-<%@page import="ModeloDAO.ClienteDAO"%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,7 @@
                 <div class="sidebar-menu">
                     <div class="menu-section">
                         <div class="menu-section-title">Controles</div>
-                        <a href="ControladorClientes?accion=listar" class="menu-item">
+                        <a href="https://example.com/clientes" class="menu-item">
                             <i class='bx bx-user'></i> Clientes
                         </a>
                         <a href="ControladorContrato?accion=listarContrato" class="menu-item">
@@ -105,7 +105,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Lista de Reservaciones</h5>
+                            <h5 class="mb-0">Agregar Pago</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -122,25 +122,17 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <%
-                                ClienteDAO dao=new ClienteDAO();
-                                int id=Integer.parseInt((String)request.getAttribute("idCli"));
-                                Cliente c=(Cliente)dao.list(id);
-                             %>
-                            <h1>Modificar Cliente</h1>
-                            <form action="ControladorClientes">
-                                Nombre:<br>
-                                <input class="form-control" type="text" name="txtNombre" value="<%= c.getNombre()%>"><br>
-                                Apellido:<br>
-                                <input class="form-control" type="text" name="txtApellido" value="<%= c.getApellido()%>"><br>
-                                Telefono:<br>
-                                <input class="form-control" type="text" name="txtTelefono" value="<%= c.getTelefono()%>"><br>
-                                DUI:<br>
-                                <input class="form-control" type="text" name="txtDUI" value="<%= c.getDui()%>"><br>
-                                
-                                <input type="hidden" name="txtidC" value="<%= c.getIdCliente() %>">
-                                <input class="btn btn-primary" type="submit" name="accion" value="Actualizar">
-                                <a class="btn btn-primary" href="ControladorClientes?accion=listar">Regresar</a>
+                            <form action="ControladorCuentaPago">
+                                Fecha:<br>
+                                <input class="form-control" type="date" name="txtFecha"><br>
+                                Monto: <br>
+                                <input class="form-control" type="text" name="txtMonto"><br>
+                                N° Cuota <br>
+                                <input class="form-control" type="text" name="txtNumeroCuota"><br>
+                                ID Contrato: <br>
+                                <input class="form-control" type="text" name="txtIdContrato"><br>
+                                <input class="btn btn-primary" type="submit" name="accion" value="Agregar">
+                                <a class="btn btn-primary" href="ControladorCuentaPago?accion=listarCuentaPago">Regresar</a>
                             </form>
                         </div>
 
@@ -167,3 +159,4 @@
         </script>
     </body>
 </html>
+

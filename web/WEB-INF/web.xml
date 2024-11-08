@@ -32,6 +32,14 @@
         <servlet-name>ControladorPlan</servlet-name>
         <servlet-class>Controladores.ControladorPlan</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorCuentaPago</servlet-name>
+        <servlet-class>Controladores.ControladorCuentaPago</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorDetallePlan</servlet-name>
+        <servlet-class>Controladores.ControladorDetallePlan</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorVendedores</servlet-name>
         <url-pattern>/ControladorVendedores</url-pattern>
@@ -63,5 +71,13 @@
     <servlet-mapping>
         <servlet-name>ControladorPlan</servlet-name>
         <url-pattern>/ControladorPlan</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCuentaPago</servlet-name>
+        <url-pattern>/ControladorCuentaPago</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorDetallePlan</servlet-name>
+        <url-pattern>/ControladorDetallePlan</url-pattern>
     </servlet-mapping>
 </web-app>

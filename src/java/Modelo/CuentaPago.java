@@ -15,16 +15,16 @@ public class CuentaPago {
     LocalDate fecha;
     double monto;
     int numeroCuotas;
-    int idCuentaCobrar;
+    int idContrato;
 
     public CuentaPago() {
     }
 
-    public CuentaPago(LocalDate fecha, double monto, int numeroCuotas, int idCuentaCobrar) {
+    public CuentaPago(LocalDate fecha, double monto, int numeroCuotas, int idContrato) {
         this.fecha = fecha;
         this.monto = monto;
         this.numeroCuotas = numeroCuotas;
-        this.idCuentaCobrar = idCuentaCobrar;
+        this.idContrato = idContrato;
     }
 
     public int getIdCuentaPago() {
@@ -59,13 +59,13 @@ public class CuentaPago {
         this.numeroCuotas = numeroCuotas;
     }
 
-    public int getIdCuentaCobrar() {
-        return idCuentaCobrar;
+    public int getIdContrato() {
+        return idContrato;
     }
 
-    public void setIdCuentaCobrar(int idCuentaCobrar) {
-        this.idCuentaCobrar = idCuentaCobrar;
+    public void setIdContrato(int idContrato) {
+        this.idContrato = idContrato;
     }
-    
+
     
 }

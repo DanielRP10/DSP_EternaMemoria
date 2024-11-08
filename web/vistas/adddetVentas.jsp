@@ -47,10 +47,12 @@
                                 <a href="ControladorVendedores?accion=listar" class="menu-item">Vendedores</a>
                                 <a href="ControladorVentas?accion=listar" class="menu-item">Ventas</a>
                                 <a href="ControladorDetallesVentas?accion=listar" class="menu-item">Detalles de Ventas</a>
+                                <a href="ControladorPlan?accion=listarPlan" class="menu-item">Plan</a>
+                                <a href="ControladorDetallePlan?accion=listarDetallePlan" class="menu-item">Detalle del Plan</a>
                             </div>
                         </div>
-                        <a href="https://example.com/compras" class="menu-item">
-                            <i class='bx bx-shopping-bag'></i> Compras
+                        <a href="ControladorCuentaPago?accion=listarCuentaPago" class="menu-item">
+                            <i class='bx bx-shopping-bag'></i> Pago
                         </a>
                         <a href="https://example.com/cobros" class="menu-item">
                             <i class='bx bx-money'></i> Cobros de Créditos
