@@ -125,7 +125,7 @@
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
                             <a class="btn btn-success" href="ControladorClientes?accion=add">Agregar Nuevo</a>
-                            <a class="btn btn-success" href="reportes/reportClientes.jsp">Reporte Clientes</a>
+                            <a class="btn btn-success" href="reportes/reportClientes.jsp">Reporte de Clientes</a>
                             <br>
                             <br>
                             <table class="table table-bordered">
