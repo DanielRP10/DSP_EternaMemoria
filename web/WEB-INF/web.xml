@@ -80,4 +80,16 @@
         <servlet-name>ControladorDetallePlan</servlet-name>
         <url-pattern>/ControladorDetallePlan</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCompras</servlet-name>
+        <url-pattern>/ControladorCompras</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorDetallesCompras</servlet-name>
+        <url-pattern>/ControladorDetallesCompras</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorProductos</servlet-name>
+        <url-pattern>/ControladorProductos</url-pattern>
+    </servlet-mapping>
 </web-app>
