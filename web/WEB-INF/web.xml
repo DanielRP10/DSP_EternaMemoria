@@ -40,6 +40,18 @@
         <servlet-name>ControladorDetallePlan</servlet-name>
         <servlet-class>Controladores.ControladorDetallePlan</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorCompras</servlet-name>
+        <servlet-class>Controladores.ControladorCompras</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorDetallesCompra</servlet-name>
+        <servlet-class>Controladores.ControladorDetallesCompra</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorProductos</servlet-name>
+        <servlet-class>Controladores.ControladorProductos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorVendedores</servlet-name>
         <url-pattern>/ControladorVendedores</url-pattern>
@@ -85,8 +97,8 @@
         <url-pattern>/ControladorCompras</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControladorDetallesCompras</servlet-name>
-        <url-pattern>/ControladorDetallesCompras</url-pattern>
+        <servlet-name>ControladorDetallesCompra</servlet-name>
+        <url-pattern>/ControladorDetallesCompra</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ControladorProductos</servlet-name>
