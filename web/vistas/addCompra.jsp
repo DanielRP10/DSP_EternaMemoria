@@ -26,6 +26,7 @@
             <input class="form-control" type="number" name="txtIdCon" required><br>
             <input class="btn btn-primary" type="submit" name="accion" value="Agregar"> 
             <a class="btn btn-secondary" href="ControladorCompras?accion=listar">Cancelar</a>
+       
         </form>
     </div>
 </body>
