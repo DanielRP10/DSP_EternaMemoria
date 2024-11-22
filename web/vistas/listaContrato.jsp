@@ -16,6 +16,12 @@
         <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <title>JSP Page</title>
+        <%
+            if (session == null || session.getAttribute("usuario") == null) {
+                response.sendRedirect("../index.jsp");
+                return;
+            }
+        %>
     </head>
     <body>
         <div class="wrapper">
@@ -113,7 +119,7 @@
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
                                 <i class='bx bx-user-circle'></i> Perfil
                             </a>
-                            <a href="https://example.com/logout" class="btn btn-outline-danger btn-sm">
+                            <a href="ControladorUsuario?accion=CerrarSesion" class="btn btn-outline-danger btn-sm">
                                 <i class='bx bx-log-out'></i> Cerrar Sesión
                             </a>
                         </div>
@@ -131,8 +137,9 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">ID CONTRATO</th>
-                                        <th class="text-center">FECHAcONTRATO</th>
-                                        <th class="text-center">ID CLIENTE</th>
+                                        <th class="text-center">FECHA CONTRATO</th>
+<!--                                        <th class="text-center">ID CLIENTE</th>-->
+                                        <th class="text-center">NOMBRE CLIENTE</th>
                                         <th class="text-center">ID PLAN</th>
                                         <th class="text-center">ID VENDEDOR</th>
                                         <th class="text-center">ACCION</th>
@@ -150,7 +157,8 @@
                                     <tr>
                                         <td class="text-center"><%= contra.getIdContrato()%></td>
                                         <td class="text-center"><%= contra.getFechaContrato()%></td>
-                                        <td class="text-center"><%= contra.getIdCliente()%></td>
+<!--                                        <td class="text-center"><//%= contra.getIdCliente()%></td>-->
+                                        <td class="text-center"><%= contra.getNombreCliente()%></td>
                                         <td class="text-center"><%= contra.getIdPlan()%></td>
                                         <td class="text-center"><%= contra.getIdVendedor()%></td>
                                         <td class="text-center">

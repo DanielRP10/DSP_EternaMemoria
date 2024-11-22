@@ -52,6 +52,14 @@
         <servlet-name>ControladorProductos</servlet-name>
         <servlet-class>Controladores.ControladorProductos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControladorUsuario</servlet-name>
+        <servlet-class>Controladores.ControladorUsuario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorUsuarioCRUD</servlet-name>
+        <servlet-class>Controladores.ControladorUsuarioCRUD</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorVendedores</servlet-name>
         <url-pattern>/ControladorVendedores</url-pattern>
@@ -104,4 +112,13 @@
         <servlet-name>ControladorProductos</servlet-name>
         <url-pattern>/ControladorProductos</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorUsuario</servlet-name>
+        <url-pattern>/ControladorUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorUsuarioCRUD</servlet-name>
+        <url-pattern>/ControladorUsuarioCRUD</url-pattern>
+    </servlet-mapping>
+    
 </web-app>

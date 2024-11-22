@@ -16,6 +16,12 @@
         <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <title>JSP Page</title>
+        <%
+            if (session == null || session.getAttribute("usuario") == null) {
+                response.sendRedirect("../index.jsp");
+                return;
+            }
+        %>
     </head>
     <body>
         <div class="wrapper">
@@ -113,7 +119,7 @@
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
                                 <i class='bx bx-user-circle'></i> Perfil
                             </a>
-                            <a href="https://example.com/logout" class="btn btn-outline-danger btn-sm">
+                            <a href="ControladorUsuario?accion=CerrarSesion" class="btn btn-outline-danger btn-sm">
                                 <i class='bx bx-log-out'></i> Cerrar Sesión
                             </a>
                         </div>

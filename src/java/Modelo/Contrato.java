@@ -14,15 +14,17 @@ public class Contrato {
     int idContrato;
     LocalDate fechaContrato;
     int idCliente;
+    String nombreCliente;
     int idPlan;
     int idVendedor;
 
     public Contrato() {
     }
 
-    public Contrato(LocalDate fechaContrato, int idCliente, int idPlan, int idVendedor) {
+    public Contrato(LocalDate fechaContrato, int idCliente, int idPlan, int idVendedor, String nombreCliente) {
         this.fechaContrato = fechaContrato;
         this.idCliente = idCliente;
+        this.nombreCliente = nombreCliente;
         this.idPlan = idPlan;
         this.idVendedor = idVendedor;
     }
@@ -51,6 +53,14 @@ public class Contrato {
         this.idCliente = idCliente;
     }
 
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+    
     public int getIdPlan() {
         return idPlan;
     }

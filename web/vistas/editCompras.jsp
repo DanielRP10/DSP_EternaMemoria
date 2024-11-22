@@ -13,6 +13,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <title>Editar Compra</title>
+    <%
+            if (session == null || session.getAttribute("usuario") == null) {
+                response.sendRedirect("../index.jsp");
+                return;
+            }
+        %>
 </head>
 <body>
     <div class="container">

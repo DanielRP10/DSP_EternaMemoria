@@ -17,6 +17,12 @@
         <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <title>Lista de Productos</title>
+        <%
+            if (session == null || session.getAttribute("usuario") == null) {
+                response.sendRedirect("../index.jsp");
+                return;
+            }
+        %>
     </head>
     <body>
         <div class="wrapper">

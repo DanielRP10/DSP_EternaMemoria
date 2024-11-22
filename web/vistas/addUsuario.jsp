@@ -1,13 +1,9 @@
 <%-- 
-    Document   : listaCuentaPago
-    Created on : 7 nov 2024, 10:22:14
+    Document   : addUsuario
+    Created on : 20 nov 2024, 23:15:25
     Author     : predi
 --%>
 
-<%@page import="java.util.Iterator"%>
-<%@page import="Modelo.CuentaPago"%>
-<%@page import="java.util.List"%>
-<%@page import="ModeloDAO.CuentaPagoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -114,7 +110,7 @@
                 <header class="header">
                     <div class="d-flex justify-content-between w-100">
                         <div>
-                            <h5 class="mb-0">Lista de Pago</h5>
+                            <h5 class="mb-0">Agregar Usuario</h5>
                         </div>
                         <div>
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
@@ -131,43 +127,16 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <a class="btn btn-success" href="ControladorCuentaPago?accion=add">Agregar Nuevo</a>
-                            <br>
-                            <br>
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">ID PAGO</th>
-                                        <th class="text-center">FECHA</th>
-                                        <th class="text-center">MONTO</th>
-                                        <th class="text-center">N° CUOTA</th>
-                                        <th class="text-center">ID CONTRATO</th>
-                                        <th class="text-center">ACCION</th>
-                                    </tr>
-                                </thead>
-                                <%
-                                    CuentaPagoDAO dao=new CuentaPagoDAO();
-                                    List<CuentaPago>list=dao.listarCuentaPago();
-                                    Iterator<CuentaPago>iter=list.iterator();
-                                    CuentaPago pago=null;
-                                    while(iter.hasNext()){
-                                        pago=iter.next();
-                                %>
-                                <tbody>
-                                    <tr>
-                                        <td class="text-center"><%= pago.getIdCuentaPago()%></td>
-                                        <td class="text-center"><%= pago.getFecha()%></td>
-                                        <td class="text-center"><%= pago.getMonto()%></td>
-                                        <td class="text-center"><%= pago.getNumeroCuotas()%></td>
-                                        <td class="text-center"><%= pago.getIdContrato()%></td>
-                                        <td class="text-center">
-                                            <a class="btn btn-warning" href="ControladorCuentaPago?accion=editar&id=<%= pago.getIdCuentaPago()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorCuentaPago?accion=eliminar&id=<%= pago.getIdCuentaPago()%>">Eliminar</a>
-                                        </td>
-                                    </tr>
-                                    <%}%>
-                                </tbody>
-                            </table>
+                            <form action="ControladorUsuarioCRUD">
+                                Usuario:<br>
+                                <input class="form-control" type="text" name="txtUsuario"><br>
+                                Password: <br>
+                                <input class="form-control" type="text" name="txtPassword"><br>
+                                Id Vendedor <br>
+                                <input class="form-control" type="text" name="txtIdVendedor"><br>
+                                <input class="btn btn-primary" type="submit" name="accion" value="Agregar">
+                                <a class="btn btn-primary" href="ControladorUsuarioCRUD?accion=listarUsuario">Regresar</a>
+                            </form>
                         </div>
 
                         <!-- Sección Clientes -->
@@ -193,4 +162,3 @@
         </script>
     </body>
 </html>
-
