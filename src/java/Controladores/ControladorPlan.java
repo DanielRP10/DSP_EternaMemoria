@@ -13,6 +13,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
@@ -96,6 +97,28 @@ public class ControladorPlan extends HttpServlet {
             p.setIdPlan(id);
             dao.eliminar(id);
             acceso=listar;
+        }
+        
+        if (action.equalsIgnoreCase("datosGraficosPlan")) {
+            // Configuración de respuesta JSON
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            List<Plan> planes = dao.listarPlan(); 
+
+            // Construcción del JSON
+            StringBuilder json = new StringBuilder("[");
+            for (Plan plan : planes) {
+                json.append("{")
+                    .append("\"nombre\":\"").append(plan.getNombrePlan()).append("\",")
+                    .append("\"precio\":").append(plan.getPrecio())
+                    .append("},");
+            }
+            if (json.charAt(json.length() - 1) == ',') {
+                json.deleteCharAt(json.length() - 1); 
+            }
+            json.append("]");
+            out.print(json.toString());
+            out.flush();
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);

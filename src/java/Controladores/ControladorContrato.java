@@ -16,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  *
@@ -105,6 +106,27 @@ public class ControladorContrato extends HttpServlet {
             c.setIdContrato(id);
             dao.eliminar(id);
             acceso=listar;
+        }
+        
+        if (action.equalsIgnoreCase("datosGraficos")) {
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            List<Contrato> contratos = dao.listarContrato();
+
+            StringBuilder json = new StringBuilder("[");
+            for (Contrato contrato : contratos) {
+                json.append("{")
+                    .append("\"id\":").append(contrato.getIdContrato()).append(",")
+                    .append("\"cliente\":\"").append(contrato.getNombreCliente()).append("\",")
+                    .append("\"plan\":").append(contrato.getIdPlan())
+                    .append("},");
+            }
+            if (json.charAt(json.length() - 1) == ',') {
+                json.deleteCharAt(json.length() - 1); 
+            }
+            json.append("]");
+            out.print(json.toString());
+            out.flush();
         }
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);

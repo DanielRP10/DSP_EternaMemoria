@@ -130,36 +130,35 @@
             <div class="container-fluid">
                 <!-- Sección Default -->
                 <div id="default-section" class="dashboard-section active">
-                    <h2>Panel de Control</h2>
-                    <p>Seleccione una opción del menú para comenzar.</p>
-                </div>
-
-                <!-- Sección Clientes -->
-                <div id="clientes-section" class="dashboard-section">
-                    <h2>Gestión de Clientes</h2>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nuevo Cliente</h5>
-                                    <p class="card-text">Registrar un nuevo cliente en el sistema.</p>
-                                    <a href="https://example.com/clientes/nuevo" class="btn btn-primary">Crear Cliente</a>
-                                </div>
+                        <div class="col-md-6 d-flex flex-column align-items-center">
+                            <h3>Reporte de Contratos</h3>
+                            <div class="w-100">
+                                <canvas id="contratosChart" style="max-height: 300px;"></canvas>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Lista de Clientes</h5>
-                                    <p class="card-text">Ver y gestionar todos los clientes.</p>
-                                    <a href="https://example.com/clientes/lista" class="btn btn-info">Ver Listado</a>
-                                </div>
+                        <div class="col-md-6 d-flex flex-column align-items-center">
+                            <h3>Reporte de planes</h3>
+                            <div class="w-100">
+                                <canvas id="planesChart" style="max-height: 300px;"></canvas>
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6 d-flex flex-column align-items-center">
+                            <h3>Reporte de Reservaciones</h3>
+                            <div class="w-100">
+                                <canvas id="reservacionesChart" style="max-height: 300px;"></canvas>
+                            </div>
+                        </div>
+<!--                        <div class="col-md-6 d-flex flex-column align-items-center">
+                            <h3>Reporte de planes</h3>
+                            <div class="w-100">
+                                <canvas id="planesChart" style="max-height: 300px;"></canvas>
+                            </div>
+                        </div>-->
+                    </div>
                 </div>
-
-                <!-- Otras secciones similares para cada opción del menú -->
             </div>
         </div>
     </div>
@@ -167,11 +166,139 @@
         
         <script>
             document.getElementById('ventas-toggle').addEventListener('click', function(e) {
-    e.preventDefault(); // Evita que el enlace siga el href
-    const submenu = document.getElementById('ventas-submenu');
-    submenu.classList.toggle('show'); // Alternar la clase 'show' para mostrar/ocultar
-});
+                e.preventDefault(); 
+                const submenu = document.getElementById('ventas-submenu');
+                submenu.classList.toggle('show'); 
+            });
+            async function fetchContratosData() {
+                const response = await fetch('ControladorContrato?accion=datosGraficos');
+                return await response.json();
+            }
+
+            async function renderChart() {
+                const contratosData = await fetchContratosData();
+                const clientes = contratosData.map(contrato => contrato.cliente);
+                const planes = contratosData.map(contrato => contrato.plan);
+
+                const ctx = document.getElementById('contratosChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar', 
+                    data: {
+                        labels: clientes, 
+                        datasets: [{
+                            label: 'Planes de Contratos',
+                            data: planes, 
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },
+                            tooltip: { enabled: true }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            }
+
+            renderChart();
+            
+            async function fetchPlanesData() {
+                const response = await fetch('ControladorPlan?accion=datosGraficosPlan');
+                return await response.json();
+            }
+
+            
+            async function renderPlanesChart() {
+                const planesData = await fetchPlanesData();
+                const nombres = planesData.map(plan => plan.nombre); // Nombres de los planes
+                const precios = planesData.map(plan => plan.precio); // Precios de los planes
+
+                const ctx = document.getElementById('planesChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'pie', 
+                    data: {
+                        labels: nombres, 
+                        datasets: [{
+                            data: precios, 
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },
+                            tooltip: { enabled: true }
+                        }
+                    }
+                });
+            }
+
+            renderPlanesChart(); 
+            
+            async function fetchReservacionesData() {
+                const response = await fetch('ControladorReservacion?accion=datosGraficosReservacion');
+                return await response.json();
+            }
+
+            async function renderReservacionesChart() {
+                const reservacionesData = await fetchReservacionesData();
+                const fechas = reservacionesData.map(reservacion => reservacion.fecha); // Fechas de las reservaciones
+                const clientes = reservacionesData.map(reservacion => reservacion.cliente); // IDs de los clientes
+
+                const ctx = document.getElementById('reservacionesChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut', // Tipo de gráfico (puedes cambiarlo a 'line', 'pie', etc.)
+                    data: {
+                        labels: fechas, // Etiquetas (fechas)
+                        datasets: [{
+                            label: 'Reservaciones por Cliente',
+                            data: clientes, // Cantidad de reservaciones o IDs de clientes
+                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },
+                            tooltip: { enabled: true }
+                        },
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
+                });
+            }
+
+            renderReservacionesChart();
+            
         </script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </body>
 </html>
 
