@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0d393131-6fc8-4a79-813e-6442efb98516">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT 
     ctr.idContrato,
@@ -27,21 +30,18 @@ ORDER BY
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="388ad580-2e62-4717-83f4-a1f30514b889"/>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#86B0D4" uuid="388ad580-2e62-4717-83f4-a1f30514b889"/>
 				<staticText>
-					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="a9b3f06e-2986-4af7-b156-b52f531d7e42"/>
+					<reportElement x="74" y="26" width="305" height="43" forecolor="#FFFFFF" uuid="a9b3f06e-2986-4af7-b156-b52f531d7e42"/>
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
+					<text><![CDATA[Reporte Contratos]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="a760562a-a42e-4b9b-b7b8-f200e83e91ca"/>
-					<textElement textAlignment="Right">
-						<font size="14" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Add a description here]]></text>
-				</staticText>
+				<image>
+					<reportElement x="457" y="5" width="101" height="81" uuid="caa2e5e6-fdf4-4f1c-8830-f9b4c6045b0e"/>
+					<imageExpression><![CDATA["C:\\Users\\Jennifer Tatiana GF\\Downloads\\Logo.png"]]></imageExpression>
+				</image>
 			</frame>
 		</band>
 	</title>
@@ -89,28 +89,28 @@ ORDER BY
 				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="06baf350-1fcf-4b07-a72d-2775743f2044"/>
 			</line>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="0" y="0" width="138" height="20" uuid="526e75e2-409f-4d68-b3d1-3ab9305f1b5d"/>
+				<reportElement x="26" y="0" width="100" height="19" uuid="526e75e2-409f-4d68-b3d1-3ab9305f1b5d"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{idContrato}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="138" y="0" width="138" height="20" uuid="72b7a7d6-f4bc-489a-9b19-f13b1a8a8420"/>
+				<reportElement x="181" y="0" width="65" height="20" uuid="72b7a7d6-f4bc-489a-9b19-f13b1a8a8420"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{anio}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="276" y="0" width="138" height="20" uuid="5c9f18b3-6fdc-418d-b235-9b3744ff0f57"/>
+				<reportElement x="316" y="0" width="83" height="19" uuid="5c9f18b3-6fdc-418d-b235-9b3744ff0f57"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{vendedorNombre}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement x="414" y="0" width="138" height="20" uuid="0f0a6234-fa51-4adf-a237-8e92295c6a7b"/>
+				<reportElement x="474" y="0" width="68" height="19" uuid="0f0a6234-fa51-4adf-a237-8e92295c6a7b"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="35614b77-acd1-4a86-a93b-4e1c2d8f616a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT 
     c.idCliente,
@@ -24,8 +27,7 @@ GROUP BY
     c.dui, 
     YEAR(cp.fecha)
 ORDER BY 
-    c.nombre, anio;
-]]>
+    c.nombre, anio;]]>
 	</queryString>
 	<field name="idCliente" class="java.lang.Integer"/>
 	<field name="nombre" class="java.lang.String"/>
@@ -40,21 +42,18 @@ ORDER BY
 	<title>
 		<band height="72">
 			<frame>
-				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="f4501e11-2db9-4b4f-8dcf-16dd12edcdde"/>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#86B0D4" uuid="f4501e11-2db9-4b4f-8dcf-16dd12edcdde"/>
 				<staticText>
-					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="c3e0a061-1169-45ec-8ee4-5ebdc6a3e358"/>
+					<reportElement x="99" y="20" width="290" height="43" forecolor="#FFFFFF" uuid="c3e0a061-1169-45ec-8ee4-5ebdc6a3e358"/>
 					<textElement>
 						<font size="34" isBold="true"/>
 					</textElement>
-					<text><![CDATA[TITLE]]></text>
+					<text><![CDATA[Reporte Clientes]]></text>
 				</staticText>
-				<staticText>
-					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="9e71a39d-0b78-457e-a3b3-aa0587d35b0f"/>
-					<textElement textAlignment="Right">
-						<font size="14" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Add a description here]]></text>
-				</staticText>
+				<image>
+					<reportElement x="452" y="6" width="83" height="79" uuid="cf7318b0-f973-473b-b67c-e4d7c5329e7e"/>
+					<imageExpression><![CDATA["C:\\Users\\Jennifer Tatiana GF\\Downloads\\Logo.png"]]></imageExpression>
+				</image>
 			</frame>
 		</band>
 	</title>
