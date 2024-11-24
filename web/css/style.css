@@ -167,17 +167,51 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .dropdown-content.show {
     display: block; 
 }
-.menu-section-title {
-            cursor: pointer;
-            padding: 10px;
-            font-weight: bold;
-        }
 
-        .menu-section .menu-item {
-            display: none;
-            padding-left: 20px;
-        }
+/* Fondo con degradado */
+.gradient-bg {
+    background: linear-gradient(90deg, #4e73df, #f8f9fc);
+}
 
-        .menu-section.show .menu-item {
-            display: block;
-        }
+/* Sombra y bordes redondeados para el formulario */
+.shadow {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+/* Imagen a la derecha */
+.img-fluid {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    height: 100%;
+    object-fit: cover;
+}
+
+img[name="logoFuneraria"] {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    height: 90%; /* Ajusta el tamaño */
+    object-fit: contain; /* Asegura que no se deforme ni recorte */
+    margin: auto; /* Centra horizontalmente */
+    display: block; /* Asegura que esté correctamente alineada */
+}
+
+div[name="rightSection"] {
+    background-color: #f8f9fa; /* Fondo gris suave */
+    padding: 20px; /* Espaciado interno */
+    display: flex; /* Flexbox para centrar contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    border-top-right-radius: 12px; /* Bordes redondeados superiores */
+    border-bottom-right-radius: 12px; /* Bordes redondeados inferiores */
+}
+
+div[name="rowContainer"] {
+    max-width: 900px; /* Ajusta el ancho máximo del contenedor */
+    margin: auto; /* Centra horizontalmente */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+}
+
+div[name="rowContainer"] > div {
+    padding: 10px; /* Espaciado interno opcional */
+}
