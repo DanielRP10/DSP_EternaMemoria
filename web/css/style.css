@@ -167,7 +167,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 .dropdown-content.show {
     display: block; 
 }
+.menu-section-title {
+            cursor: pointer;
+            padding: 10px;
+            font-weight: bold;
+        }
 
+        .menu-section .menu-item {
+            display: none;
+            padding-left: 20px;
+        }
 
-
-
+        .menu-section.show .menu-item {
+            display: block;
+        }
