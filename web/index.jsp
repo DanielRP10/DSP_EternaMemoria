@@ -15,15 +15,15 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
         <title>Vendedores</title>
     </head>
-        
-    <body>
-        <div class="wrapper">
+ <body>
+<div class="wrapper">
     <nav class="sidebar">
         <div class="sidebar-header">
             <h4>Panel Administrativo</h4>
         </div>
         <div class="sidebar-menu">
-            <div class="menu-section">
+            <!-- Controles -->
+            <div class="menu-section" id="section-controles">
                 <div class="menu-section-title">Controles</div>
                 <a href="https://example.com/clientes" class="menu-item">
                     <i class='bx bx-user'></i> Clientes
@@ -39,29 +39,28 @@
                 </a>
             </div>
 
-            <div class="menu-section">
-    <div class="menu-section-title">Operaciones</div>
-    <div class="menu-item dropdown">
-        <a href="#" class="menu-item-toggle" id="ventas-toggle">
-            <i class='bx bx-cart'></i> Ventas <i class='bx bx-chevron-down ms-auto'></i>
-        </a>
-        <div class="dropdown-content" id="ventas-submenu">
-            <a href="ControladorVendedores?accion=listar" class="menu-item">Vendedores</a>
-            <a href="ControladorVentas?accion=listar" class="menu-item">Ventas</a>
-        </div>
-    </div>
-    <a href="https://example.com/compras" class="menu-item">
-        <i class='bx bx-shopping-bag'></i> Compras
-    </a>
-    <a href="https://example.com/cobros" class="menu-item">
-        <i class='bx bx-money'></i> Cobros de Créditos
-    </a>
-    <a href="https://example.com/devoluciones" class="menu-item">
-        <i class='bx bx-revision'></i> Devoluciones
-    </a>
-</div>
+            <!-- Operaciones -->
+            <div class="menu-section" id="section-operaciones">
+                <div class="menu-section-title">Operaciones</div>
+                <a href="ControladorVendedores?accion=listar" class="menu-item">
+                    <i class='bx bx-user'></i> Vendedores
+                </a>
+                <a href="ControladorVentas?accion=listar" class="menu-item">
+                    <i class='bx bx-cart'></i> Ventas
+                </a>
+                <a href="https://example.com/compras" class="menu-item">
+                    <i class='bx bx-shopping-bag'></i> Compras
+                </a>
+                <a href="https://example.com/cobros" class="menu-item">
+                    <i class='bx bx-money'></i> Cobros de Créditos
+                </a>
+                <a href="https://example.com/devoluciones" class="menu-item">
+                    <i class='bx bx-revision'></i> Devoluciones
+                </a>
+            </div>
 
-            <div class="menu-section">
+            <!-- Informes -->
+            <div class="menu-section" id="section-informes">
                 <div class="menu-section-title">Informes</div>
                 <a href="https://example.com/historial-producto" class="menu-item">
                     <i class='bx bx-history'></i> Historial de Producto
@@ -74,7 +73,8 @@
                 </a>
             </div>
 
-            <div class="menu-section">
+            <!-- Especiales -->
+            <div class="menu-section" id="section-especiales">
                 <div class="menu-section-title">Especiales</div>
                 <a href="https://example.com/usuarios" class="menu-item">
                     <i class='bx bx-group'></i> Usuarios
@@ -87,7 +87,8 @@
                 </a>
             </div>
 
-            <div class="menu-section">
+            <!-- Ayuda -->
+            <div class="menu-section" id="section-ayuda">
                 <div class="menu-section-title">Ayuda</div>
                 <a href="https://example.com/ayuda" class="menu-item">
                     <i class='bx bx-help-circle'></i> Ayuda
@@ -97,9 +98,7 @@
                 </a>
             </div>
         </div>
-    </nav>
-
-    <div class="main-content">
+    </nav><div class="main-content">
         <header class="header">
             <div class="d-flex justify-content-between w-100">
                 <div>
@@ -156,11 +155,13 @@
 </div>
         
         <script>
-            document.getElementById('ventas-toggle').addEventListener('click', function(e) {
-    e.preventDefault(); // Evita que el enlace siga el href
-    const submenu = document.getElementById('ventas-submenu');
-    submenu.classList.toggle('show'); // Alternar la clase 'show' para mostrar/ocultar
-});
+          
+ document.querySelectorAll('.menu-section-title').forEach(title => {
+        title.addEventListener('click', () => {
+            const section = title.parentElement;
+            section.classList.toggle('show');
+        });
+    });
         </script>
     </body>
 </html>
