@@ -20,6 +20,7 @@
 </head>
 <body>
     <div class="container">
+        <jsp:include page="sidebar.jsp" />
         <h1>Agregar Producto</h1>
         <form action="ControladorProductos">
             Nombre:<br>

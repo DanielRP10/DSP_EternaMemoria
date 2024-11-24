@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 public class ControladorCompras extends HttpServlet {
     String listar = "vistas/listaCompras.jsp";
-    String add = "vistas/addCompras.jsp";
+    String add = "vistas/addCompra.jsp";
     String edit = "vistas/editCompras.jsp";
     Compras compra = new Compras();
     ComprasDAO dao = new ComprasDAO();

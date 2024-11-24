@@ -22,6 +22,7 @@
 </head>
 <body>
     <div class="container">
+        <jsp:include page="sidebar.jsp" />
         <h2 class="my-4">Editar Compra</h2>
         <%
             ComprasDAO dao = new ComprasDAO();
