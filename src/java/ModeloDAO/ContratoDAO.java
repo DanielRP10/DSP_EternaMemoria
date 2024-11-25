@@ -109,4 +109,29 @@ public class ContratoDAO implements CRUDContrato{
         return false;
     }
     
+    public List<Contrato> listarContratoTablero() {
+        ArrayList<Contrato> list = new ArrayList<>();
+        String sql = "SELECT v.idVendedor, v.nombre AS nombreVendedor, COUNT(c.idContrato) AS totalContratos " +
+                     "FROM contratos c " +
+                     "INNER JOIN vendedores v ON c.idVendedor = v.idVendedor " +
+                     "GROUP BY v.idVendedor, v.nombre " +
+                     "ORDER BY totalContratos DESC";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Contrato contra = new Contrato();
+                contra.setIdVendedor(rs.getInt("idVendedor"));
+                contra.setNombreVendedor(rs.getString("nombreVendedor"));
+                contra.setTotalContratos(rs.getInt("totalContratos")); // Agrega un campo en tu modelo si no lo tienes
+                list.add(contra);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    
 }

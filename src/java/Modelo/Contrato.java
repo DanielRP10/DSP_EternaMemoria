@@ -17,17 +17,24 @@ public class Contrato {
     String nombreCliente;
     int idPlan;
     int idVendedor;
+    String nombreVendedor;
+    int totalContratos;
 
     public Contrato() {
     }
 
-    public Contrato(LocalDate fechaContrato, int idCliente, int idPlan, int idVendedor, String nombreCliente) {
+    public Contrato(int idContrato, LocalDate fechaContrato, int idCliente, String nombreCliente, int idPlan, int idVendedor, String nombreVendedor, int totalContratos) {
+        this.idContrato = idContrato;
         this.fechaContrato = fechaContrato;
         this.idCliente = idCliente;
         this.nombreCliente = nombreCliente;
         this.idPlan = idPlan;
         this.idVendedor = idVendedor;
+        this.nombreVendedor = nombreVendedor;
+        this.totalContratos = totalContratos;
     }
+
+    
 
     public int getIdContrato() {
         return idContrato;
@@ -76,6 +83,21 @@ public class Contrato {
     public void setIdVendedor(int idVendedor) {
         this.idVendedor = idVendedor;
     }
-    
+
+    public String getNombreVendedor() {
+        return nombreVendedor;
+    }
+
+    public void setNombreVendedor(String nombreVendedor) {
+        this.nombreVendedor = nombreVendedor;
+    }
+
+    public int getTotalContratos() {
+        return totalContratos;
+    }
+
+    public void setTotalContratos(int totalContratos) {
+        this.totalContratos = totalContratos;
+    }
     
 }

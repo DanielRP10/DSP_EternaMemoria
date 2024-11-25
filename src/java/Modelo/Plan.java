@@ -13,14 +13,16 @@ public class Plan {
     String nombrePlan;
     String descrion;
     double precio;
+    int totalClientes;
 
     public Plan() {
     }
 
-    public Plan( String nombrePlan, String descrion, double precio) {
+    public Plan( String nombrePlan, String descrion, double precio, int totalClientes) {
         this.nombrePlan = nombrePlan;
         this.descrion = descrion;
         this.precio = precio;
+        this.totalClientes = totalClientes;
     }
 
     public int getIdPlan() {
@@ -53,6 +55,14 @@ public class Plan {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public int getTotalClientes() {
+        return totalClientes;
+    }
+
+    public void setTotalClientes(int totalClientes) {
+        this.totalClientes = totalClientes;
     }
     
 }

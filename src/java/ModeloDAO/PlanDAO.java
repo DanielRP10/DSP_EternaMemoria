@@ -104,4 +104,28 @@ public class PlanDAO implements CRUDPlan{
         return false;
     }
     
+    public List<Plan> listarClientesPorPlanes() {
+        ArrayList<Plan> list = new ArrayList<>();
+        String sql = "SELECT p.idPlan, p.nombrePlan, COUNT(DISTINCT c.idCliente) AS totalClientes " +
+                     "FROM planes p " +
+                     "INNER JOIN contratos co ON p.idPlan = co.idPlan " +
+                     "INNER JOIN clientes c ON co.idCliente = c.idCliente " +
+                     "GROUP BY p.idPlan, p.nombrePlan " +
+                     "ORDER BY totalClientes DESC";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Plan plan = new Plan();
+                plan.setIdPlan(rs.getInt("idPlan"));
+                plan.setNombrePlan(rs.getString("nombrePlan"));
+                plan.setTotalClientes(rs.getInt("totalClientes")); // Asegúrate de que este campo esté en tu modelo Plan
+                list.add(plan);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
 }

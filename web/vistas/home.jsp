@@ -85,25 +85,28 @@
         <script>
              
             async function fetchContratosData() {
-                const response = await fetch('ControladorContrato?accion=datosGraficos');
-                return await response.json();
+                const response = await fetch('ControladorContrato?accion=datosGraficos'); // Endpoint del controlador
+                return await response.json(); // JSON retornado por el servlet
             }
 
             async function renderChart() {
-                const contratosData = await fetchContratosData();
-                const clientes = contratosData.map(contrato => contrato.cliente);
-                const planes = contratosData.map(contrato => contrato.plan);
+                const contratosData = await fetchContratosData(); // Llamada al servidor
 
+                // Extrae nombres de vendedores y totales de contratos
+                const nombresVendedores = contratosData.map(contrato => contrato.nombreVendedor);
+                const totalContratos = contratosData.map(contrato => contrato.totalContratos);
+
+                // Renderiza el gráfico
                 const ctx = document.getElementById('contratosChart').getContext('2d');
                 new Chart(ctx, {
-                    type: 'bar', 
+                    type: 'bar',
                     data: {
-                        labels: clientes, 
+                        labels: nombresVendedores, // Etiquetas en el eje X
                         datasets: [{
-                            label: 'Planes de Contratos',
-                            data: planes, 
-                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
+                            label: 'Total de Contratos por Vendedor',
+                            data: totalContratos, // Valores en el eje Y
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)', // Color de fondo
+                            borderColor: 'rgba(75, 192, 192, 1)', // Color del borde
                             borderWidth: 1
                         }]
                     },
@@ -114,26 +117,25 @@
                             tooltip: { enabled: true }
                         },
                         scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+                            y: { beginAtZero: true }
                         }
                     }
                 });
             }
 
+            // Llama a la función para inicializar el gráfico
             renderChart();
-            
+
+//---------------------------------------grafica de planes----------------------------------------------            
             async function fetchPlanesData() {
-                const response = await fetch('ControladorPlan?accion=datosGraficosPlan');
+                const response = await fetch('ControladorPlan?accion=datosGraficosPlan'); // Ajusta esta ruta según tu configuración
                 return await response.json();
             }
 
-            
             async function renderPlanesChart() {
                 const planesData = await fetchPlanesData();
                 const nombres = planesData.map(plan => plan.nombre); // Nombres de los planes
-                const precios = planesData.map(plan => plan.precio); // Precios de los planes
+                const totales = planesData.map(plan => plan.totalPlanes); // Total de clientes por plan
 
                 const ctx = document.getElementById('planesChart').getContext('2d');
                 new Chart(ctx, {
@@ -141,7 +143,7 @@
                     data: {
                         labels: nombres, 
                         datasets: [{
-                            data: precios, 
+                            data: totales, 
                             backgroundColor: [
                                 'rgba(255, 99, 132, 0.2)',
                                 'rgba(54, 162, 235, 0.2)',
@@ -172,7 +174,7 @@
             }
 
             renderPlanesChart(); 
-            
+//-------------------------------------------grafica de reservaciones ------------------------------------------------            
             async function fetchReservacionesData() {
                 const response = await fetch('ControladorReservacion?accion=datosGraficosReservacion');
                 return await response.json();
@@ -191,8 +193,22 @@
                         datasets: [{
                             label: 'Reservaciones por Cliente',
                             data: clientes, // Cantidad de reservaciones o IDs de clientes
-                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                            borderColor: 'rgba(153, 102, 255, 1)',
+                            backgroundColor: [
+                                'rgba(244, 164, 96, 0.2)',   // Sandy Brown
+                                'rgba(32, 178, 170, 0.2)',   // Light Sea Green
+                                'rgba(135, 206, 235, 0.2)',  // Sky Blue
+                                'rgba(255, 182, 193, 0.2)',  // Light Pink
+                                'rgba(255, 240, 245, 0.2)',  // Lavender Blush
+                                'rgba(221, 160, 221, 0.2)'   // Plum
+                            ],
+                            borderColor: [
+                                'rgba(244, 164, 96, 1)',     // Sandy Brown
+                                'rgba(32, 178, 170, 1)',     // Light Sea Green
+                                'rgba(135, 206, 235, 1)',    // Sky Blue
+                                'rgba(255, 182, 193, 1)',    // Light Pink
+                                'rgba(255, 240, 245, 1)',    // Lavender Blush
+                                'rgba(221, 160, 221, 1)'     // Plum
+                            ],
                             borderWidth: 1
                         }]
                     },
@@ -215,4 +231,3 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </body>
 </html>
-

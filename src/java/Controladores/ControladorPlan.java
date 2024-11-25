@@ -103,14 +103,14 @@ public class ControladorPlan extends HttpServlet {
             // Configuración de respuesta JSON
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
-            List<Plan> planes = dao.listarPlan(); 
+            List<Plan> planes = dao.listarClientesPorPlanes(); 
 
             // Construcción del JSON
             StringBuilder json = new StringBuilder("[");
             for (Plan plan : planes) {
                 json.append("{")
                     .append("\"nombre\":\"").append(plan.getNombrePlan()).append("\",")
-                    .append("\"precio\":").append(plan.getPrecio())
+                    .append("\"totalPlanes\":").append(plan.getTotalClientes())
                     .append("},");
             }
             if (json.charAt(json.length() - 1) == ',') {

@@ -111,20 +111,27 @@ public class ControladorContrato extends HttpServlet {
         if (action.equalsIgnoreCase("datosGraficos")) {
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
-            List<Contrato> contratos = dao.listarContrato();
 
+            // Llamamos al método listarContratoTablero() del DAO
+            List<Contrato> contratos = dao.listarContratoTablero();
+
+            // Construimos el JSON con los datos de vendedores y total de contratos
             StringBuilder json = new StringBuilder("[");
             for (Contrato contrato : contratos) {
                 json.append("{")
-                    .append("\"id\":").append(contrato.getIdContrato()).append(",")
-                    .append("\"cliente\":\"").append(contrato.getNombreCliente()).append("\",")
-                    .append("\"plan\":").append(contrato.getIdPlan())
+                    .append("\"idVendedor\":").append(contrato.getIdVendedor()).append(",")
+                    .append("\"nombreVendedor\":\"").append(contrato.getNombreVendedor()).append("\",")
+                    .append("\"totalContratos\":").append(contrato.getTotalContratos())
                     .append("},");
             }
+
+            // Eliminamos la última coma si existe
             if (json.charAt(json.length() - 1) == ',') {
-                json.deleteCharAt(json.length() - 1); 
+                json.deleteCharAt(json.length() - 1);
             }
             json.append("]");
+
+            // Enviamos el JSON como respuesta
             out.print(json.toString());
             out.flush();
         }
