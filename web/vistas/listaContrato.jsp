@@ -47,7 +47,7 @@
                     <div class="container-fluid">
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
-                            <a class="btn btn-success" href="ControladorContrato?accion=add">Agregar Nuevo</a>
+                            <a class="btn btn-success" href="ControladorContrato?accion=add">Agregar Nuevo</a>                           
                             <br>
                             <br>
                             <table class="table table-bordered">

@@ -13,7 +13,9 @@ public class Conexion {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             //Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:sqlserver://PC-INATOR:1433;databaseName=Funeraria;user=usersql;password=1234;");
+
+            con = DriverManager.getConnection("jdbc:sqlserver://DESKTOP-A8KNC4P:1433;databaseName=Funeraria;user=usersql;password=1234;");
+
             //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ejemplobd?useTimeZone=true&serverTimezone=UTC&autoReconnect=true&useSSL=false","root","root");
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println("Error: \n"+e.getClass()+"\n"+e.getMessage());
