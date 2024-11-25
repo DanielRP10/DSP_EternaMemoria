@@ -33,7 +33,7 @@
                     <div class="container-fluid">
                         <%
                             ProductosDAO dao = new ProductosDAO();
-                            int id = Integer.parseInt((String) request.getAttribute("idProducto"));
+                            int id = Integer.parseInt((String) request.getAttribute("idprod"));
                             Productos producto = dao.list(id);
                         %>
                         <form action="ControladorProductos">
