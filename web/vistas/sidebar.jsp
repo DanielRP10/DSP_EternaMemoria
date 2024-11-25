@@ -5,10 +5,10 @@
 --%>
 <nav class="sidebar d-flex flex-column vh-100">
     <!-- Encabezado -->
-    <div class="sidebar-header bg-primary text-white text-center py-3">
+    <div class="sidebar-header text-white text-center py-3">
         <h4>Panel Administrativo</h4>
     </div>
-
+    
     <!-- Menú -->
     <div class="sidebar-menu flex-grow-1 overflow-auto ">
         <!-- Controles -->
@@ -17,24 +17,30 @@
             <a href="ControladorClientes?accion=listar" class="menu-item p-3">
                 <i class='bx bx-user'></i> Clientes
             </a>
-            <a href="ControladorContrato?accion=listarContrato" class="menu-item p-3">
-                <i class='bx bx-task'></i> Contrato
-            </a>
-            <a href="ControladorReservacion?accion=listarReservacion" class="menu-item p-3">
-                <i class='bx bx-category'></i> Reservaciones
-            </a>
-            <a href="ControladorCompras?accion=listar" class="menu-item p-3">
-                <i class='bx bx-shopping-bag'></i> Compras
-            </a>
-            <a href="ControladorDetallesCompra?accion=listar" class="menu-item p-3">
-                <i class='bx bx-shopping-bag'></i> Detalles de Compras
+            <a href="ControladorVendedores?accion=listar" class="menu-item p-3">
+                <i class='bx bx-user-minus'></i> Vendedores
             </a>
             
+           <a href="ControladorContrato?accion=listarContrato" class="menu-item p-3">
+                <i class='bx bx-task'></i> Contrato
+            </a>
+            <a href="ControladorProductos?accion=listar" class="menu-item p-3">
+                <i class='bx bx-box'></i> Productos
+            </a>
+            <a href="ControladorInventarios?accion=listar" class="menu-item p-3">
+                <i class='bx bx-building'></i> Inventarios
+            </a>
+            <a href="ControladorPlan?accion=listarPlan" class="menu-item p-3">
+                <i class='bx bx-detail'></i> Plan
+            </a>
+            <a href="ControladorDetallePlan?accion=listarDetallePlan" class="menu-item p-3">
+                <i class='bx bx-detail'></i> Detalle Plan
+            </a>
         </div>
 
         <!-- Operaciones -->
         <div class="menu-section" id="section-operaciones">
-            <div class="menu-section-title p-3">Servicios</div>
+            <div class="menu-section-title p-3">Operaciones</div>
             <!--
             <div class="menu-item dropdown">
                 
@@ -49,20 +55,25 @@
                     <a href="ControladorDetallePlan?accion=listarDetallePlan" class="menu-item">Detalle del Plan</a>
                 </div>
             </div>-->
-            <a href="ControladorPlan?accion=listarPlan" class="menu-item p-3">
-                <i class='bx bx-detail'></i> Plan
+            <a href="ControladorVentas?accion=listar" class="menu-item p-3">
+                <i class='bx bx-purchase-tag'></i> Ventas
             </a>
-            <a href="ControladorDetallePlan?accion=listarDetallePlan" class="menu-item p-3">
-                <i class='bx bx-detail'></i> Detalle Plan
+            <a href="ControladorDetallesVentas?accion=listar" class="menu-item p-3">
+                <i class='bx bx-purchase-tag'></i> Detalles de Ventas
             </a>
+            <a href="ControladorCompras?accion=listar" class="menu-item p-3">
+                <i class='bx bx-shopping-bag'></i> Compras
+            </a>
+            <a href="ControladorDetallesCompra?accion=listar" class="menu-item p-3">
+                <i class='bx bx-shopping-bag'></i> Detalles de Compras
+            </a>
+            
             <a href="ControladorCuentaPago?accion=listarCuentaPago" class="menu-item p-3">
                 <i class='bx bx-dollar'></i> Pago
             </a>
-            <a href="ControladorProductos?accion=listar" class="menu-item p-3">
-                <i class='bx bx-box'></i> Productos
-            </a>
-            <a href="https://example.com/cobros" class="menu-item p-3">
-                <i class='bx bx-money'></i> Cobros de Créditos - x
+            
+             <a href="ControladorReservacion?accion=listarReservacion" class="menu-item p-3">
+                <i class='bx bx-category'></i> Reservaciones
             </a>
             
         </div>
@@ -70,49 +81,36 @@
         <!-- Informes -->
         <div class="menu-section" id="section-informes">
             <div class="menu-section-title p-3">Informes</div>
-            <a href="ControladorVentas?accion=listar" class="menu-item p-3">
-                <i class='bx bx-purchase-tag'></i> Ventas
+            <a href="https://example.com/informe-ventas" class="menu-item p-3">
+                <i class='bx bx-line-chart'></i> Informe de Ventas - x
             </a>
-            <a href="ControladorDetallesVentas?accion=listar" class="menu-item p-3">
-                <i class='bx bx-purchase-tag'></i> Detalles de Ventas
+            <a href="https://example.com/informe-contratos" class="menu-item p-3">
+                <i class='bx bx-task'></i> Informe de Contratos - x
             </a>
             <a href="https://example.com/estado-cuenta" class="menu-item p-3">
                 <i class='bx bx-spreadsheet'></i> Estado de Cuenta - x
             </a>
             <a href="https://example.com/informe-ventas" class="menu-item p-3">
-                <i class='bx bx-line-chart'></i> Informe de Ventas - x
+                <i class='bx bx-line-chart'></i> Informe Clientes - x
             </a>
-            <a href="ControladorInventarios?accion=listar" class="menu-item p-3">
-                <i class='bx bx-building'></i> Inventarios
-            </a>
+            
+            
         </div>
 
         <!-- Especiales -->
         <div class="menu-section" id="section-especiales">
             <div class="menu-section-title p-3">Especiales</div>
-            <a href="https://example.com/usuarios" class="menu-item p-3">
-                <i class='bx bx-group'></i> Usuarios - x
-            </a>
-            <a href="https://example.com/autorizaciones" class="menu-item p-3">
-                <i class='bx bx-lock'></i> Autorizaciones - x
-            </a>
-            <a href="https://example.com/configuraciones" class="menu-item p-3">
-                <i class='bx bx-cog'></i> Configuraciones - x
-            </a>
+            
             <a href="ControladorUsuarioCRUD?accion=listarUsuario" class="menu-item p-3">
                 <i class='bx bx-user'></i> Usuario
             </a>
-            <a href="ControladorVendedores?accion=listar" class="menu-item p-3">
-                <i class='bx bx-user-minus'></i> Vendedor
-            </a>
+            
         </div>
 
         <!-- Ayuda -->
         <div class="menu-section" id="section-ayuda">
-            <div class="menu-section-title p-3">Ayuda</div>
-            <a href="https://example.com/ayuda" class="menu-item p-3">
-                <i class='bx bx-help-circle'></i> Ayuda - x
-            </a>
+            <div class="menu-section-title p-3">Acerca de</div>
+            
             <a href="https://example.com/acerca-de" class="menu-item p-3">
                 <i class='bx bx-info-circle'></i> Acerca de - x
             </a>
