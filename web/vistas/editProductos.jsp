@@ -24,6 +24,7 @@
     </head>
     <body>
         <div class="wrapper">
+            <jsp:include page="sidebar.jsp" />
             <div class="main-content">
                 <header class="header">
                     <h5 class="mb-0">Editar Producto</h5>
@@ -32,7 +33,7 @@
                     <div class="container-fluid">
                         <%
                             ProductosDAO dao = new ProductosDAO();
-                            int id = Integer.parseInt((String) request.getAttribute("idProducto"));
+                            int id = Integer.parseInt((String) request.getAttribute("idprod"));
                             Productos producto = dao.list(id);
                         %>
                         <form action="ControladorProductos">

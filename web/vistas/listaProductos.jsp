@@ -26,13 +26,14 @@
     </head>
     <body>
         <div class="wrapper">
+            <jsp:include page="sidebar.jsp" />
             <div class="main-content">
                 <header class="header">
                     <h5 class="mb-0">Lista de Productos</h5>
                 </header>
                 <div class="content">
                     <div class="container-fluid">
-                        <a class="btn btn-success" href="ControladorProductos?accion=add">Agregar Nuevo Producto</a>
+                    <a class="btn btn-success" href="ControladorProductos?accion=add">Agregar Nuevo Producto</a>
                         <br><br>
                         <table class="table table-bordered">
                             <thead>

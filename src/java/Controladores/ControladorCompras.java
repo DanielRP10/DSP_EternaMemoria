@@ -8,7 +8,6 @@ import Modelo.Compras;
 import ModeloDAO.ComprasDAO;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -19,27 +18,11 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 public class ControladorCompras extends HttpServlet {
     String listar = "vistas/listaCompras.jsp";
-    String add = "vistas/addCompras.jsp";
+    String add = "vistas/addCompra.jsp";
     String edit = "vistas/editCompras.jsp";
     Compras compra = new Compras();
     ComprasDAO dao = new ComprasDAO();
     int id;
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControladorCompras</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControladorCompras at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -51,39 +34,16 @@ public class ControladorCompras extends HttpServlet {
             acceso = listar;
         } else if (action.equalsIgnoreCase("add")) {
             acceso = add;
-        } else if (action.equalsIgnoreCase("Agregar")) {
-            String fecha = request.getParameter("txtFecha");
-            float monto = Float.parseFloat(request.getParameter("txtMonto"));
-            int idCli = Integer.parseInt(request.getParameter("txtIdCli"));
-            int idCon = Integer.parseInt(request.getParameter("txtIdCon"));
-            compra.setFecha(fecha);
-            compra.setMontoTotal(monto);
-            compra.setIdCliente(idCli);
-            compra.setIdContrato(idCon);
-            dao.add(compra);
-            acceso = listar;
         } else if (action.equalsIgnoreCase("editar")) {
             request.setAttribute("idcompra", request.getParameter("id"));
             acceso = edit;
-        } else if (action.equalsIgnoreCase("Actualizar")) {
-            id = Integer.parseInt(request.getParameter("txtid"));
-            String fecha = request.getParameter("txtFecha");
-            float monto = Float.parseFloat(request.getParameter("txtMonto"));
-            int idCli = Integer.parseInt(request.getParameter("txtIdCli"));
-            int idCon = Integer.parseInt(request.getParameter("txtIdCon"));
-            compra.setIdCompra(id);
-            compra.setFecha(fecha);
-            compra.setMontoTotal(monto);
-            compra.setIdCliente(idCli);
-            compra.setIdContrato(idCon);
-            dao.edit(compra);
-            acceso = listar;
         } else if (action.equalsIgnoreCase("eliminar")) {
             id = Integer.parseInt(request.getParameter("id"));
             dao.eliminar(id);
             acceso = listar;
         }
 
+        // Redirigir a la vista correspondiente
         RequestDispatcher vista = request.getRequestDispatcher(acceso);
         vista.forward(request, response);
     }
@@ -91,7 +51,55 @@ public class ControladorCompras extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String acceso = "";
+        String action = request.getParameter("accion");
+
+        if (action.equalsIgnoreCase("Agregar")) {
+            // Recuperar datos del formulario
+            String fecha = request.getParameter("txtFecha");
+            float monto = Float.parseFloat(request.getParameter("txtMonto"));
+            int idCli = Integer.parseInt(request.getParameter("txtIdCli"));
+            int idCon = Integer.parseInt(request.getParameter("txtIdCon"));
+
+            // Configurar el objeto compra
+            compra.setFecha(fecha);
+            compra.setMontoTotal(monto);
+            compra.setIdCliente(idCli);
+            compra.setIdContrato(idCon);
+
+            // Agregar la compra usando el DAO
+            dao.add(compra);
+
+            // Redirigir a la lista de compras
+            acceso = listar;
+        } else if (action.equalsIgnoreCase("Actualizar")) {
+            // Recuperar datos para actualizar
+            id = Integer.parseInt(request.getParameter("txtid"));
+            String fecha = request.getParameter("txtFecha");
+            float monto = Float.parseFloat(request.getParameter("txtMonto"));
+            int idCli = Integer.parseInt(request.getParameter("txtIdCli"));
+            int idCon = Integer.parseInt(request.getParameter("txtIdCon"));
+
+            // Configurar el objeto compra actualizado
+            compra.setIdCompra(id);
+            compra.setFecha(fecha);
+            compra.setMontoTotal(monto);
+            compra.setIdCliente(idCli);
+            compra.setIdContrato(idCon);
+
+            // Actualizar en la base de datos
+            dao.edit(compra);
+
+            // Redirigir a la lista de compras
+            acceso = listar;
+        } else if (action.equalsIgnoreCase("Cancelar")) {
+            // Redirigir a la lista si se cancela
+            acceso = listar;
+        }
+
+        // Redirigir a la vista correspondiente
+        RequestDispatcher vista = request.getRequestDispatcher(acceso);
+        vista.forward(request, response);
     }
 
     @Override
