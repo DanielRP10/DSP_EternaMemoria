@@ -14,26 +14,26 @@
         <!-- Controles -->
         <div class="menu-section" id="section-controles">
             <div class="menu-section-title p-3">Controles</div>
-            <a href="ControladorClientes?accion=listar" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorClientes?accion=listar" class="menu-item p-3">
                 <i class='bx bx-user'></i> Clientes
             </a>
-            <a href="ControladorVendedores?accion=listar" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorVendedores?accion=listar" class="menu-item p-3">
                 <i class='bx bx-user-minus'></i> Vendedores
             </a>
             
-           <a href="ControladorContrato?accion=listarContrato" class="menu-item p-3">
+           <a href="${pageContext.request.contextPath}/ControladorContrato?accion=listarContrato" class="menu-item p-3">
                 <i class='bx bx-task'></i> Contrato
             </a>
-            <a href="ControladorProductos?accion=listar" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorProductos?accion=listar" class="menu-item p-3">
                 <i class='bx bx-box'></i> Productos
             </a>
-            <a href="ControladorInventarios?accion=listar" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorInventarios?accion=listar" class="menu-item p-3">
                 <i class='bx bx-building'></i> Inventarios
             </a>
-            <a href="ControladorPlan?accion=listarPlan" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorPlan?accion=listarPlan" class="menu-item p-3">
                 <i class='bx bx-detail'></i> Plan
             </a>
-            <a href="ControladorDetallePlan?accion=listarDetallePlan" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorDetallePlan?accion=listarDetallePlan" class="menu-item p-3">
                 <i class='bx bx-detail'></i> Detalle Plan
             </a>
         </div>
@@ -55,24 +55,24 @@
                     <a href="ControladorDetallePlan?accion=listarDetallePlan" class="menu-item">Detalle del Plan</a>
                 </div>
             </div>-->
-            <a href="ControladorVentas?accion=listar" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorVentas?accion=listar" class="menu-item p-3">
                 <i class='bx bx-purchase-tag'></i> Ventas
             </a>
-            <a href="ControladorDetallesVentas?accion=listar" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorDetallesVentas?accion=listar" class="menu-item p-3">
                 <i class='bx bx-purchase-tag'></i> Detalles de Ventas
             </a>
-            <a href="ControladorCompras?accion=listar" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorCompras?accion=listar" class="menu-item p-3">
                 <i class='bx bx-shopping-bag'></i> Compras
             </a>
-            <a href="ControladorDetallesCompra?accion=listar" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorDetallesCompra?accion=listar" class="menu-item p-3">
                 <i class='bx bx-shopping-bag'></i> Detalles de Compras
             </a>
             
-            <a href="ControladorCuentaPago?accion=listarCuentaPago" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorCuentaPago?accion=listarCuentaPago" class="menu-item p-3">
                 <i class='bx bx-dollar'></i> Pago
             </a>
             
-             <a href="ControladorReservacion?accion=listarReservacion" class="menu-item p-3">
+             <a href="${pageContext.request.contextPath}/ControladorReservacion?accion=listarReservacion" class="menu-item p-3">
                 <i class='bx bx-category'></i> Reservaciones
             </a>
             
@@ -81,16 +81,16 @@
         <!-- Informes -->
         <div class="menu-section" id="section-informes">
             <div class="menu-section-title p-3">Informes</div>
-            <a href="vistas/reporteVentas.jsp" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/vistas/reporteVentas.jsp" class="menu-item p-3">
                 <i class='bx bx-line-chart'></i> Informe de Ventas
             </a>
-            <a href="vistas/reporteContratos.jsp" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/vistas/reporteContratos.jsp" class="menu-item p-3">
                 <i class='bx bx-task'></i> Informe de Contratos
             </a>
-            <a href="vistas/reportePagos.jsp" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/vistas/reportePagos.jsp" class="menu-item p-3">
                 <i class='bx bx-spreadsheet'></i> Estado de Cuenta
             </a>
-            <a href="vistas/reporteClientes.jsp" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/vistas/reporteClientes.jsp" class="menu-item p-3">
                 <i class='bx bx-line-chart'></i> Informe Clientes
             </a>
             
@@ -101,7 +101,7 @@
         <div class="menu-section" id="section-especiales">
             <div class="menu-section-title p-3">Especiales</div>
             
-            <a href="ControladorUsuarioCRUD?accion=listarUsuario" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/ControladorUsuarioCRUD?accion=listarUsuario" class="menu-item p-3">
                 <i class='bx bx-user'></i> Usuario
             </a>
             
@@ -111,7 +111,7 @@
         <div class="menu-section" id="section-ayuda">
             <div class="menu-section-title p-3">Acerca de</div>
             
-            <a href="vistas/acercaDe.jsp" class="menu-item p-3">
+            <a href="${pageContext.request.contextPath}/vistas/acercaDe.jsp" class="menu-item p-3">
                 <i class='bx bx-info-circle'></i> Acerca de 
             </a>
         </div>

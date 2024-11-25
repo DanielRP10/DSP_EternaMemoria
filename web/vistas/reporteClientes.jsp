@@ -112,7 +112,7 @@
                             <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
                                 <i class='bx bx-user-circle'></i> Perfil
                             </a>
-                            <a href="ControladorUsuario?accion=CerrarSesion" class="btn btn-outline-danger btn-sm">
+                            <a href="${pageContext.request.contextPath}/ControladorUsuario?accion=CerrarSesion" class="btn btn-outline-danger btn-sm">
                                 <i class='bx bx-log-out'></i> Cerrar Sesión
                             </a>
                         </div>
@@ -128,7 +128,7 @@
 
                     <div class="reports-list">
                         <div class="report-item">
-                            Reporte de clientes
+                            Información de los clientes, los contratos y pagos realizados por cada cliente.
                         </div>
                     </div>
                 </div>
