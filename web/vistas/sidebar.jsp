@@ -81,17 +81,17 @@
         <!-- Informes -->
         <div class="menu-section" id="section-informes">
             <div class="menu-section-title p-3">Informes</div>
-            <a href="https://example.com/informe-ventas" class="menu-item p-3">
-                <i class='bx bx-line-chart'></i> Informe de Ventas - x
+            <a href="vistas/reporteVentas.jsp" class="menu-item p-3">
+                <i class='bx bx-line-chart'></i> Informe de Ventas
             </a>
-            <a href="https://example.com/informe-contratos" class="menu-item p-3">
-                <i class='bx bx-task'></i> Informe de Contratos - x
+            <a href="vistas/reporteContratos.jsp" class="menu-item p-3">
+                <i class='bx bx-task'></i> Informe de Contratos
             </a>
-            <a href="https://example.com/estado-cuenta" class="menu-item p-3">
-                <i class='bx bx-spreadsheet'></i> Estado de Cuenta - x
+            <a href="vistas/reportePagos.jsp" class="menu-item p-3">
+                <i class='bx bx-spreadsheet'></i> Estado de Cuenta
             </a>
-            <a href="https://example.com/informe-ventas" class="menu-item p-3">
-                <i class='bx bx-line-chart'></i> Informe Clientes - x
+            <a href="vistas/reporteClientes.jsp" class="menu-item p-3">
+                <i class='bx bx-line-chart'></i> Informe Clientes
             </a>
             
             
@@ -112,7 +112,7 @@
             <div class="menu-section-title p-3">Acerca de</div>
             
             <a href="vistas/acercaDe.jsp" class="menu-item p-3">
-                <i class='bx bx-info-circle'></i> Acerca de
+                <i class='bx bx-info-circle'></i> Acerca de 
             </a>
         </div>
     </div>
