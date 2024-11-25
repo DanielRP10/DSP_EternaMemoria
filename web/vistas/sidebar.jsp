@@ -111,8 +111,8 @@
         <div class="menu-section" id="section-ayuda">
             <div class="menu-section-title p-3">Acerca de</div>
             
-            <a href="https://example.com/acerca-de" class="menu-item p-3">
-                <i class='bx bx-info-circle'></i> Acerca de - x
+            <a href="vistas/acercaDe.jsp" class="menu-item p-3">
+                <i class='bx bx-info-circle'></i> Acerca de
             </a>
         </div>
     </div>
