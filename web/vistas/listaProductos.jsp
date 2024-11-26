@@ -29,8 +29,18 @@
             <jsp:include page="sidebar.jsp" />
             <div class="main-content">
                 <header class="header">
-                    <h5 class="mb-0">Lista de Productos</h5>
+                    <div class="d-flex justify-content-between w-100">
+                        <div>
+                            <h5 class="mb-0">Lista de Productos</h5>
+                        </div>
+                        <div>
+                            <a href="ControladorUsuario?accion=CerrarSesion" class="btn btn-outline-danger btn-sm">
+                                <i class='bx bx-log-out'></i> Cerrar Sesión
+                            </a>
+                        </div>
+                    </div>
                 </header>
+
                 <div class="content">
                     <div class="container-fluid">
                     <a class="btn btn-success" href="ControladorProductos?accion=add">Agregar Nuevo Producto</a>

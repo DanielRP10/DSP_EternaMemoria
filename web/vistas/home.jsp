@@ -14,7 +14,7 @@
         <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
         <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
-        <title>Vendedores</title>
+        <title>Inicio</title>
         <%
             if (session == null || session.getAttribute("usuario") == null) {
                 response.sendRedirect("../index.jsp");
@@ -33,10 +33,7 @@
                 <div>
                     <h5 class="mb-0">Bienvenido, Administrador</h5>
                 </div>
-                <div>
-                    <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
-                        <i class='bx bx-user-circle'></i> Perfil
-                    </a>
+                <div> 
                     <a href="ControladorUsuario?accion=CerrarSesion" class="btn btn-outline-danger btn-sm">
                         <i class='bx bx-log-out'></i> Cerrar Sesión
                     </a>

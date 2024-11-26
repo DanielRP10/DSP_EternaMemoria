@@ -32,9 +32,6 @@
                             <h5 class="mb-0">Modificar Reservaciones</h5>
                         </div>
                         <div>
-                            <a href="https://example.com/perfil" class="btn btn-outline-secondary btn-sm me-2">
-                                <i class='bx bx-user-circle'></i> Perfil
-                            </a>
                             <a href="ControladorUsuario?accion=CerrarSesion" class="btn btn-outline-danger btn-sm">
                                 <i class='bx bx-log-out'></i> Cerrar Sesión
                             </a>
