@@ -15,6 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 /**
  *
@@ -94,6 +95,33 @@ public class ControladorVentas extends HttpServlet {
             V.setIdVenta(id);
             dao.eliminar(id);
             acceso=listar;
+        }
+        
+        if (action.equalsIgnoreCase("datosGraficosVentas")) {
+            // Configuración de respuesta JSON
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+
+            // Llamamos al método del DAO para obtener los datos de las ventas
+            List<Venta> ventas = dao.listarVentasTop5(); // Asegúrate de que el DAO esté correcto
+
+            // Construcción del JSON
+            StringBuilder json = new StringBuilder("[");
+            for (Venta venta : ventas) {
+                json.append("{")
+                    .append("\"cliente\":\"").append(venta.getNombreCliente()).append("\",") // Nombre del cliente
+                    .append("\"totalVentas\":").append(venta.getTotalVentas())
+                    .append("},");
+            }
+            // Eliminar la última coma
+            if (json.charAt(json.length() - 1) == ',') {
+                json.deleteCharAt(json.length() - 1);
+            }
+            json.append("]");
+
+            // Enviar el JSON generado al cliente
+            out.print(json.toString());
+            out.flush();
         }
         
         RequestDispatcher vista=request.getRequestDispatcher(acceso);

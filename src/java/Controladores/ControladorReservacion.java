@@ -110,18 +110,18 @@ public class ControladorReservacion extends HttpServlet {
             // Configuración de respuesta JSON
             response.setContentType("application/json");
             PrintWriter out = response.getWriter();
-            List<Reservacion> reservacion = dao.listarReservacion(); 
+            List<Reservacion> reservaciones = dao.listarReservacionesPorAnio(); // Llamamos al nuevo método del DAO
 
             // Construcción del JSON
             StringBuilder json = new StringBuilder("[");
-            for (Reservacion reser : reservacion) {
+            for (Reservacion reser : reservaciones) {
                 json.append("{")
-                    .append("\"fecha\":\"").append(reser.getFecha()).append("\",")
-                    .append("\"cliente\":").append(reser.getIdCliente())
+                    .append("\"anio\":").append(reser.getAnio()).append(",") // Usamos el año
+                    .append("\"totalReservaciones\":").append(reser.getTotalReservaciones())
                     .append("},");
             }
             if (json.charAt(json.length() - 1) == ',') {
-                json.deleteCharAt(json.length() - 1); 
+                json.deleteCharAt(json.length() - 1); // Eliminar la última coma
             }
             json.append("]");
             out.print(json.toString());

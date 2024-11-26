@@ -16,14 +16,17 @@ public class Reservacion {
     LocalDate fecha;
     LocalTime hora;
     int idCliente;
+    int totalReservaciones;
+    int anio; 
 
     public Reservacion() {
     }
 
-    public Reservacion(LocalDate fecha, LocalTime hora, int idCliente) {
+    public Reservacion(LocalDate fecha, LocalTime hora, int idCliente, int totalReservaciones) {
         this.fecha = fecha;
         this.hora = hora;
         this.idCliente = idCliente;
+        this.totalReservaciones = totalReservaciones;
     }
 
     public int getIdReservacion() {
@@ -58,6 +61,21 @@ public class Reservacion {
         this.idCliente = idCliente;
     }
 
+    public int getTotalReservaciones() {
+        return totalReservaciones;
+    }
+
+    public void setTotalReservaciones(int totalReservaciones) {
+        this.totalReservaciones = totalReservaciones;
+    }
+    
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
     
     
 }

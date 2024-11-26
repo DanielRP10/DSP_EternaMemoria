@@ -106,4 +106,32 @@ public class VentaDAO implements CRUDVentas{
         return false;
     }
     
+    public List<Venta> listarVentasTop5() {
+        ArrayList<Venta> list = new ArrayList<>();
+        String sql = "SELECT TOP 5 " +
+                     "c.nombre, " +
+                     "SUM(v.montoTotal) AS totalVentas " +
+                     "FROM Ventas v " +
+                     "JOIN clientes c ON v.idCliente = c.idCliente " +
+                     "WHERE MONTH(v.fecha) = MONTH(GETDATE()) " +
+                     "AND YEAR(v.fecha) = YEAR(GETDATE()) " +
+                     "GROUP BY v.idCliente, c.nombre " +
+                     "ORDER BY totalVentas DESC";
+
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Venta venta = new Venta();
+                venta.setNombreCliente(rs.getString("nombre")); // Nombre del cliente
+                venta.setTotalVentas(rs.getDouble("totalVentas")); // Total de ventas
+                list.add(venta);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
 }

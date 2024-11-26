@@ -69,12 +69,12 @@
                                 <canvas id="reservacionesChart" style="max-height: 300px;"></canvas>
                             </div>
                         </div>
-<!--                        <div class="col-md-6 d-flex flex-column align-items-center">
+                        <div class="col-md-6 d-flex flex-column align-items-center">
                             <h3>Reporte de planes</h3>
                             <div class="w-100">
-                                <canvas id="planesChart" style="max-height: 300px;"></canvas>
+                                <canvas id="ventasChart" style="max-height: 300px;"></canvas>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,20 +145,24 @@
                         datasets: [{
                             data: totales, 
                             backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(75, 192, 192, 0.2)',
-                                'rgba(153, 102, 255, 0.2)',
-                                'rgba(255, 159, 64, 0.2)'
+                                'rgba(255, 99, 132, 0.6)',   // Rojo
+                                'rgba(54, 162, 235, 0.6)',   // Azul
+                                'rgba(255, 159, 64, 0.6)',   // Naranja
+                                'rgba(75, 192, 192, 0.6)',   // Verde
+                                'rgba(153, 102, 255, 0.6)',  // Violeta
+                                'rgba(255, 159, 223, 0.6)',  // Rosa claro
+                                'rgba(255, 99, 71, 0.6)',    // Rojo tomate
+                                'rgba(32, 178, 170, 0.6)',   // Verde mar
                             ],
                             borderColor: [
-                                'rgba(255, 99, 132, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                                'rgba(255, 159, 64, 1)'
+                                'rgba(255, 99, 132, 1)', 
+                                'rgba(54, 162, 235, 1)', 
+                                'rgba(255, 159, 64, 1)', 
+                                'rgba(75, 192, 192, 1)', 
+                                'rgba(153, 102, 255, 1)', 
+                                'rgba(255, 159, 223, 1)', 
+                                'rgba(255, 99, 71, 1)', 
+                                'rgba(32, 178, 170, 1)', 
                             ],
                             borderWidth: 1
                         }]
@@ -173,8 +177,8 @@
                 });
             }
 
-            renderPlanesChart(); 
-//-------------------------------------------grafica de reservaciones ------------------------------------------------            
+            renderPlanesChart();
+//------------------------------------------- Gráfica de reservaciones ------------------------------------------------
             async function fetchReservacionesData() {
                 const response = await fetch('ControladorReservacion?accion=datosGraficosReservacion');
                 return await response.json();
@@ -182,32 +186,36 @@
 
             async function renderReservacionesChart() {
                 const reservacionesData = await fetchReservacionesData();
-                const fechas = reservacionesData.map(reservacion => reservacion.fecha); // Fechas de las reservaciones
-                const clientes = reservacionesData.map(reservacion => reservacion.cliente); // IDs de los clientes
+                const anios = reservacionesData.map(reser => reser.anio); // Años
+                const totalReservaciones = reservacionesData.map(reser => reser.totalReservaciones); // Total de reservaciones por año
 
                 const ctx = document.getElementById('reservacionesChart').getContext('2d');
                 new Chart(ctx, {
-                    type: 'doughnut', // Tipo de gráfico (puedes cambiarlo a 'line', 'pie', etc.)
+                    type: 'doughnut', 
                     data: {
-                        labels: fechas, // Etiquetas (fechas)
+                        labels: anios, 
                         datasets: [{
-                            label: 'Reservaciones por Cliente',
-                            data: clientes, // Cantidad de reservaciones o IDs de clientes
+                            label: 'Reservaciones por Año',
+                            data: totalReservaciones, 
                             backgroundColor: [
-                                'rgba(244, 164, 96, 0.2)',   // Sandy Brown
-                                'rgba(32, 178, 170, 0.2)',   // Light Sea Green
-                                'rgba(135, 206, 235, 0.2)',  // Sky Blue
-                                'rgba(255, 182, 193, 0.2)',  // Light Pink
-                                'rgba(255, 240, 245, 0.2)',  // Lavender Blush
-                                'rgba(221, 160, 221, 0.2)'   // Plum
+                                'rgba(255, 99, 132, 0.6)',   // Rojo
+                                'rgba(54, 162, 235, 0.6)',   // Azul
+                                'rgba(255, 159, 64, 0.6)',   // Naranja
+                                'rgba(75, 192, 192, 0.6)',   // Verde
+                                'rgba(153, 102, 255, 0.6)',  // Violeta
+                                'rgba(255, 159, 223, 0.6)',  // Rosa claro
+                                'rgba(255, 99, 71, 0.6)',    // Rojo tomate
+                                'rgba(32, 178, 170, 0.6)',   // Verde mar
                             ],
                             borderColor: [
-                                'rgba(244, 164, 96, 1)',     // Sandy Brown
-                                'rgba(32, 178, 170, 1)',     // Light Sea Green
-                                'rgba(135, 206, 235, 1)',    // Sky Blue
-                                'rgba(255, 182, 193, 1)',    // Light Pink
-                                'rgba(255, 240, 245, 1)',    // Lavender Blush
-                                'rgba(221, 160, 221, 1)'     // Plum
+                                'rgba(255, 99, 132, 1)', 
+                                'rgba(54, 162, 235, 1)', 
+                                'rgba(255, 159, 64, 1)', 
+                                'rgba(75, 192, 192, 1)', 
+                                'rgba(153, 102, 255, 1)', 
+                                'rgba(255, 159, 223, 1)', 
+                                'rgba(255, 99, 71, 1)', 
+                                'rgba(32, 178, 170, 1)', 
                             ],
                             borderWidth: 1
                         }]
@@ -217,15 +225,58 @@
                         plugins: {
                             legend: { position: 'top' },
                             tooltip: { enabled: true }
-                        },
-                        scales: {
-                            y: { beginAtZero: true }
                         }
                     }
                 });
             }
 
             renderReservacionesChart();
+//------------------------------------------- Grafico de venta ----------------------------------------
+
+            async function fetchVentasData() {
+                // Realizar la solicitud para obtener los datos de ventas
+                const response = await fetch('ControladorVentas?accion=datosGraficosVentas');
+                return await response.json();  // Devuelve los datos en formato JSON
+            }
+
+            async function renderVentasChart() {
+                const ventasData = await fetchVentasData();
+                const clientes = ventasData.map(venta => venta.cliente); // Nombres de los clientes
+                const totalVentas = ventasData.map(venta => venta.totalVentas); // Total de ventas por cliente
+
+                // Obtener el contexto del canvas
+                const ctx = document.getElementById('ventasChart').getContext('2d');
+
+                // Crear el gráfico con los datos
+                new Chart(ctx, {
+                    type: 'line',  // Tipo de gráfico lineal
+                    data: {
+                        labels: clientes,  // Etiquetas de clientes
+                        datasets: [{
+                            label: 'Ventas Totales del Mes',  // Título de la línea
+                            data: totalVentas,  // Datos de ventas
+                            borderColor: 'rgba(75, 192, 192, 1)',  // Color de la línea
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',  // Color de fondo de la línea
+                            borderWidth: 2,  // Grosor de la línea
+                            fill: true  // Rellenar el área bajo la línea
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },  // Ubicación de la leyenda
+                            tooltip: { enabled: true }  // Mostrar los tooltips
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true  // El eje Y comienza desde 0
+                            }
+                        }
+                    }
+                });
+            }
+
+            renderVentasChart();  //
             
         </script>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

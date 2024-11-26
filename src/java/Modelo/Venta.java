@@ -16,6 +16,8 @@ public class Venta {
     Double montoTotal;
     int idCliente;
     int idContrato;
+    String nombreCliente;
+    double totalVentas;
 
     public Venta(int idVenta, LocalDate fecha, Double montoTotal, int idCliente, int idContrato) {
         this.idVenta = idVenta;
@@ -68,5 +70,22 @@ public class Venta {
     public void setIdContrato(int idContrato) {
         this.idContrato = idContrato;
     }
-       
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public double getTotalVentas() {
+        return totalVentas;
+    }
+
+    public void setTotalVentas(double totalVentas) {
+        this.totalVentas = totalVentas;
+    }
+    
+    
 }

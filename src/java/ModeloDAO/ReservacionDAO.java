@@ -107,4 +107,26 @@ public class ReservacionDAO implements CRUDReservacion{
         return false;
     }
     
+    public List<Reservacion> listarReservacionesPorAnio() {
+        ArrayList<Reservacion> list = new ArrayList<>();
+        String sql = "SELECT YEAR(r.fecha) AS anio, COUNT(r.idReservacion) AS totalReservaciones " +
+                     "FROM reservaciones r " +
+                     "GROUP BY YEAR(r.fecha) " +
+                     "ORDER BY totalReservaciones DESC";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Reservacion reservacion = new Reservacion();
+                reservacion.setAnio(rs.getInt("anio")); // Guardamos solo el año
+                reservacion.setTotalReservaciones(rs.getInt("totalReservaciones"));
+                list.add(reservacion);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    
 }
