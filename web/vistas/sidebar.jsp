@@ -93,8 +93,10 @@
             <a href="${pageContext.request.contextPath}/vistas/reporteClientes.jsp" class="menu-item p-3">
                 <i class='bx bx-line-chart'></i> Informe Clientes
             </a>
-            
-            
+            <a href="${pageContext.request.contextPath}/vistas/reporteProductos.jsp" class="menu-item p-3">
+                <i class='bx bx-line-chart'></i> Informe de Productos
+            </a>
+    
         </div>
 
         <!-- Especiales -->
