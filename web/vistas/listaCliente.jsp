@@ -15,7 +15,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
-        <title>JSP Page</title>
+        <title>Lista Cliente</title>
         <%
             if (session == null || session.getAttribute("usuario") == null) {
                 response.sendRedirect("../index.jsp");
@@ -49,7 +49,6 @@
                         <!-- Sección Default -->
                         <div id="default-section" class="dashboard-section active">
                             <a class="btn btn-success" href="ControladorClientes?accion=add">Agregar Nuevo</a>
-                            <a class="btn btn-success" href="reportes/reportClientes.jsp">Reporte de Clientes</a>
                             <br>
                             <br>
                             <table class="table table-bordered">

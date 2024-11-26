@@ -14,7 +14,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css">
-        <title>JSP Page</title>
+        <title>Editar Cuenta Pago</title>
         <%
             if (session == null || session.getAttribute("usuario") == null) {
                 response.sendRedirect("../index.jsp");

@@ -53,7 +53,6 @@
                         <!-- Sección Compras -->
                         <div id="compras-section" class="dashboard-section active">
                             <a class="btn btn-success" href="ControladorCompras?accion=add">Agregar Nueva Compra</a>
-                            <a class="btn btn-success" href="reportes/reportCompras.jsp">Reporte de Compras</a>
                             <br><br>
                             <table class="table table-bordered">
                                 <thead>
