@@ -76,7 +76,14 @@
                                         <td class="text-center"><%= vent.getIdContrato()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorVentas?accion=editar&id=<%= vent.getIdVenta()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorVentas?accion=eliminar&id=<%= vent.getIdVenta()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorVentas?accion=eliminar&id=<%= vent.getIdVenta()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               
+                                               <script>
+                                                    function confirmarEliminacion() {
+                                                        return confirm('¿Estás seguro de que deseas eliminar esta venta?');
+                                                    }
+                                                </script>
                                         </td>
                                     </tr>
                                     <%}%>

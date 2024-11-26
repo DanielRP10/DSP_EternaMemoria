@@ -76,7 +76,14 @@
                                         <td class="text-center"><%= cl.getDui()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorClientes?accion=editar&id=<%= cl.getIdCliente()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorClientes?accion=eliminar&id=<%= cl.getIdCliente()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorClientes?accion=eliminar&id=<%= cl.getIdCliente() %>" 
+                                            onclick="return confirmarEliminacion()">Eliminar</a>
+
+                                            <script>
+                                                function confirmarEliminacion() {
+                                                    return confirm('¿Estás seguro de que deseas eliminar este cliente?');
+                                                }
+                                            </script>
                                         </td>
                                     </tr>
                                     <%}%>

@@ -73,7 +73,14 @@
                                         <td class="text-center"><%= user.getIdVendedor()+"-"+user.getNombre()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorUsuarioCRUD?accion=editar&id=<%= user.getIdLogin()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorUsuarioCRUD?accion=eliminar&id=<%= user.getIdLogin()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorUsuarioCRUD?accion=eliminar&id=<%= user.getIdLogin()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               
+                                               <script>
+                                                    function confirmarEliminacion() {
+                                                        return confirm('¿Estás seguro de que deseas eliminar este usuario?');
+                                                    }
+                                                </script>
                                         </td>
                                     </tr>
                                     <%}%>

@@ -78,7 +78,13 @@
                                         <td class="text-center"><%= dp.getIdPlan()+"-"+dp.getNombrePlan()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorDetallePlan?accion=editar&id=<%= dp.getIdDetallePlanes()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorDetallePlan?accion=eliminar&id=<%= dp.getIdDetallePlanes()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorDetallePlan?accion=eliminar&id=<%= dp.getIdDetallePlanes()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               <script>
+                                                function confirmarEliminacion() {
+                                                    return confirm('¿Estás seguro de que deseas eliminar este detalle del plan?');
+                                                }
+                                            </script>
                                         </td>
                                     </tr>
                                     <%}%>

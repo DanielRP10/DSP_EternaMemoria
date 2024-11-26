@@ -79,7 +79,13 @@
                                         <td class="text-center"><%= contra.getIdVendedor()+"-"+contra.getNombreVendedor()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorContrato?accion=editar&id=<%= contra.getIdContrato()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorContrato?accion=eliminar&id=<%= contra.getIdContrato()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorContrato?accion=eliminar&id=<%= contra.getIdContrato()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                            <script>
+                                                function confirmarEliminacion() {
+                                                    return confirm('¿Estás seguro de que deseas eliminar este contrato?');
+                                                }
+                                            </script>
                                         </td>
                                     </tr>
                                     <%}%>

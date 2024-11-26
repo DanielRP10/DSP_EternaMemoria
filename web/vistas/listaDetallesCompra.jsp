@@ -79,7 +79,14 @@
                                         <td class="text-center"><%= detalle.getIdProducto()+"-"+detalle.getNombrePro() %></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorDetallesCompra?accion=editar&id=<%= detalle.getIdDetalleCompra() %>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorDetallesCompra?accion=eliminar&id=<%= detalle.getIdDetalleCompra() %>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorDetallesCompra?accion=eliminar&id=<%= detalle.getIdDetalleCompra() %>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               
+                                            <script>
+                                                function confirmarEliminacion() {
+                                                    return confirm('¿Estás seguro de que deseas eliminar este detalle de compra?');
+                                                }
+                                            </script>
                                         </td>
                                     </tr>
                                 <% } %>

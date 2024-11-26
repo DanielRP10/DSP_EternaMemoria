@@ -79,7 +79,14 @@
                                         <td class="text-center"><%= compra.getIdContrato() %></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorCompras?accion=editar&id=<%= compra.getIdCompra() %>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorCompras?accion=eliminar&id=<%= compra.getIdCompra() %>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorCompras?accion=eliminar&id=<%= compra.getIdCompra() %>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               
+                                            <script>
+                                                function confirmarEliminacion() {
+                                                    return confirm('¿Estás seguro de que deseas eliminar esta Compra?');
+                                                }
+                                            </script>
                                         </td>
                                     </tr>
                                 <% } %>

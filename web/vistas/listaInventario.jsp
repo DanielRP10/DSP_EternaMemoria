@@ -72,7 +72,14 @@
                                         <td><%= in.getCantidad()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorInventarios?accion=editar&id=<%= in.getIdInventario()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorInventarios?accion=eliminar&id=<%= in.getIdInventario()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorInventarios?accion=eliminar&id=<%= in.getIdInventario()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               
+                                               <script>
+                                                    function confirmarEliminacion() {
+                                                        return confirm('¿Estás seguro de que deseas eliminar este inventario?');
+                                                    }
+                                                </script>
                                         </td>
                                     </tr>
                                     <%}%>

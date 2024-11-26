@@ -74,7 +74,14 @@
                                         <td class="text-center"><%= plan.getPrecio()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorPlan?accion=editar&id=<%= plan.getIdPlan()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorPlan?accion=eliminar&id=<%= plan.getIdPlan()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorPlan?accion=eliminar&id=<%= plan.getIdPlan()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               
+                                            <script>
+                                                function confirmarEliminacion() {
+                                                    return confirm('¿Estás seguro de que deseas eliminar este plan?');
+                                                }
+                                            </script>
                                         </td>
                                     </tr>
                                     <%}%>

@@ -73,7 +73,14 @@
                                         <td class="text-center"><%= res.getIdCliente()+"-"+res.getNombreCliente()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorReservacion?accion=editar&id=<%= res.getIdReservacion()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorReservacion?accion=eliminar&id=<%= res.getIdReservacion()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorReservacion?accion=eliminar&id=<%= res.getIdReservacion()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               
+                                               <script>
+                                                    function confirmarEliminacion() {
+                                                        return confirm('¿Estás seguro de que deseas eliminar esta reservacion?');
+                                                    }
+                                                </script>
                                         </td>
                                     </tr>
                                     <%}%>

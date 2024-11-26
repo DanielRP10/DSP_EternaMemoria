@@ -76,7 +76,13 @@
                                         <td class="text-center"><%= pago.getIdContrato()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorCuentaPago?accion=editar&id=<%= pago.getIdCuentaPago()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorCuentaPago?accion=eliminar&id=<%= pago.getIdCuentaPago()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorCuentaPago?accion=eliminar&id=<%= pago.getIdCuentaPago()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                            <script>
+                                                function confirmarEliminacion() {
+                                                    return confirm('¿Estás seguro de que deseas eliminar esta cuenta?');
+                                                }
+                                            </script>
                                         </td>
                                     </tr>
                                     <%}%>

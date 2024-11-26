@@ -75,7 +75,14 @@
                                         <td><%= vend.getDui()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorVendedores?accion=editar&id=<%= vend.getIdVendedor()%>">Editar</a>
-                                            <a class="btn btn-danger" href="ControladorVendedores?accion=eliminar&id=<%= vend.getIdVendedor()%>">Eliminar</a>
+                                            <a class="btn btn-danger" href="ControladorVendedores?accion=eliminar&id=<%= vend.getIdVendedor()%>"
+                                               onclick="return confirmarEliminacion()">Eliminar</a>
+                                               
+                                               <script>
+                                                    function confirmarEliminacion() {
+                                                        return confirm('¿Estás seguro de que deseas eliminar este vendedor?');
+                                                    }
+                                                </script>
                                         </td>
                                     </tr>
                                     <%}%>
