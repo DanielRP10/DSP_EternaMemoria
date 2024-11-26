@@ -61,7 +61,7 @@
                                         <th class="text-center">ID COMPRA</th>
                                         <th class="text-center">FECHA</th>
                                         <th class="text-center">MONTO TOTAL</th>
-                                        <th class="text-center">ID CLIENTE</th>
+                                        <th class="text-center">NOMBRE CLIENTE</th>
                                         <th class="text-center">ID CONTRATO</th>
                                         <th class="text-center">ACCIONES</th>
                                     </tr>
@@ -79,7 +79,7 @@
                                         <td class="text-center"><%= compra.getIdCompra() %></td>
                                         <td class="text-center"><%= compra.getFecha() %></td>
                                         <td class="text-center"><%= compra.getMontoTotal() %></td>
-                                        <td class="text-center"><%= compra.getIdCliente() %></td>
+                                        <td class="text-center"><%= compra.getIdCliente()+"-"+compra.getNombreCliente()%></td>
                                         <td class="text-center"><%= compra.getIdContrato() %></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorCompras?accion=editar&id=<%= compra.getIdCompra() %>">Editar</a>

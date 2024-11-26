@@ -30,7 +30,7 @@ public class DetalleVentaDAO implements CRUDdetallesVentas{
     @Override
     public List listar() {
         ArrayList<DetalleVenta>list=new ArrayList<>();
-        String sql="select * from detalleVentas";
+        String sql="SELECT * FROM detalleVentas dtv inner join productos pro on dtv.idProducto=pro.idProducto";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -41,6 +41,7 @@ public class DetalleVentaDAO implements CRUDdetallesVentas{
                 dev.setDetalleVenta(rs.getString("detalleVenta"));
                 dev.setIdVenta(rs.getInt("idVenta"));
                 dev.setIdProducto(rs.getInt("idProducto"));
+                dev.setNombrePro(rs.getString("nombre"));
                 list.add(dev);
             }
         } catch (Exception e) {

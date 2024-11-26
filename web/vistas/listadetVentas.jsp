@@ -56,7 +56,7 @@
                                         <th class="text-center">ID DETALLE VENTA</th>
                                         <th class="text-center">DETALLE VENTA</th>
                                         <th class="text-center">ID VENTA</th>
-                                        <th class="text-center">ID PRODUCTO</th>
+                                        <th class="text-center">NOMBRE PRODUCTO</th>
                                         <th class="text-center">ACCIONES</th>
                                     </tr>
                                 </thead>
@@ -73,7 +73,7 @@
                                         <td class="text-center"><%= dev.getIdDetalleVentas()%></td>
                                         <td class="text-center"><%= dev.getDetalleVenta()%></td>
                                          <td class="text-center"><%= dev.getIdVenta()%></td>
-                                          <td class="text-center"><%= dev.getIdProducto()%></td>
+                                          <td class="text-center"><%= dev.getIdProducto()+"-"+dev.getNombrePro()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorDetallesVentas?accion=editar&id=<%= dev.getIdDetalleVentas()%>">Editar</a>
                                             <a class="btn btn-danger" href="ControladorDetallesVentas?accion=eliminar&id=<%= dev.getIdDetalleVentas()%>">Eliminar</a>

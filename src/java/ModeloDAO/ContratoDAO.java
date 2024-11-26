@@ -28,7 +28,9 @@ public class ContratoDAO implements CRUDContrato{
     @Override
     public List listarContrato() {
         ArrayList<Contrato>list = new  ArrayList<>();
-        String sql = "SELECT * FROM contratos con inner join clientes cli on con.idCliente=cli.idcliente";
+        String sql = "SELECT * FROM contratos con inner join clientes cli on con.idCliente=cli.idcliente "
+                + "inner join planes pl on con.idPlan=pl.idPlan "
+                + "inner join vendedores ven on con.idVendedor=ven.idVendedor;";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -40,7 +42,9 @@ public class ContratoDAO implements CRUDContrato{
                 contra.setIdCliente(rs.getInt("idCliente"));
                 contra.setNombreCliente(rs.getString("nombre"));
                 contra.setIdPlan(rs.getInt("idPlan"));
+                contra.setNombrePlan(rs.getString("nombrePlan"));
                 contra.setIdVendedor(rs.getInt("idVendedor"));
+                contra.setNombreVendedor(rs.getString("nombre"));
                 list.add(contra);
             }
         } catch (Exception e) {

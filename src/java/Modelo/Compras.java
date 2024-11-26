@@ -14,6 +14,7 @@ public class Compras {
     String fecha;
     float montoTotal;
     int idCliente;
+    String nombreCliente;
     int idContrato;
 
     public Compras(int idCompra, String fecha, float montoTotal, int idCliente, int idContrato) {
@@ -57,6 +58,14 @@ public class Compras {
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
     public int getIdContrato() {

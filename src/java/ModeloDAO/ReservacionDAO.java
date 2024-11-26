@@ -30,7 +30,7 @@ public class ReservacionDAO implements CRUDReservacion{
     @Override
     public List listarReservacion() {
         ArrayList<Reservacion>list = new  ArrayList<>();
-        String sql = "SELECT * FROM reservaciones";
+        String sql = "SELECT * FROM reservaciones res inner join clientes cli on res.idCliente=cli.idcliente";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -41,6 +41,7 @@ public class ReservacionDAO implements CRUDReservacion{
                 reser.setFecha(rs.getDate("fecha").toLocalDate());
                 reser.setHora(rs.getTime("hora").toLocalTime());
                 reser.setIdCliente(rs.getInt("idCliente"));
+                reser.setNombreCliente(rs.getString("nombre"));
                 list.add(reser);
             }
         } catch (Exception e) {

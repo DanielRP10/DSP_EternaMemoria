@@ -62,7 +62,7 @@
                                         <th class="text-center">CANTIDAD</th>
                                         <th class="text-center">PRECIO</th>
                                         <th class="text-center">ID COMPRA</th>
-                                        <th class="text-center">ID PRODUCTO</th>
+                                        <th class="text-center">NOMBRE PRODUCTO</th>
                                         <th class="text-center">ACCIONES</th>
                                     </tr>
                                 </thead>
@@ -80,7 +80,7 @@
                                         <td class="text-center"><%= detalle.getCantidad() %></td>
                                         <td class="text-center"><%= detalle.getPrecio() %></td>
                                         <td class="text-center"><%= detalle.getIdCompra() %></td>
-                                        <td class="text-center"><%= detalle.getIdProducto() %></td>
+                                        <td class="text-center"><%= detalle.getIdProducto()+"-"+detalle.getNombrePro() %></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorDetallesCompra?accion=editar&id=<%= detalle.getIdDetalleCompra() %>">Editar</a>
                                             <a class="btn btn-danger" href="ControladorDetallesCompra?accion=eliminar&id=<%= detalle.getIdDetalleCompra() %>">Eliminar</a>

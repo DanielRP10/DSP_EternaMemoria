@@ -28,7 +28,8 @@ public class DetallePlanDAO implements CRUDDetallePlan{
     @Override
     public List listarDetallePlan() {
         ArrayList<DetallePlan>list = new  ArrayList<>();
-        String sql = "SELECT * FROM detallePlanes";
+        String sql = "SELECT * FROM detallePlanes dp inner join productos pro on dp.idProducto=pro.idProducto "
+                + "inner join planes pl on dp.idPlan=pl.idPlan;";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -40,7 +41,9 @@ public class DetallePlanDAO implements CRUDDetallePlan{
                 detapla.setDescripcion(rs.getString("descripcion"));
                 detapla.setCantidad(rs.getInt("cantidad"));
                 detapla.setIdProducto(rs.getInt("idProducto"));
+                detapla.setNombreProducto(rs.getString("nombre"));
                 detapla.setIdPlan(rs.getInt("idPlan"));
+                detapla.setNombrePlan(rs.getString("nombrePlan"));
                 list.add(detapla);
             }
         } catch (Exception e) {

@@ -56,7 +56,7 @@
                                         <th class="text-center">ID USUARIO</th>
                                         <th class="text-center">USUARIO</th>
                                         <th class="text-center">PASSWORD</th>
-                                        <th class="text-center">ID VENDEDOR</th>
+                                        <th class="text-center">NOMBRE VENDEDOR</th>
                                         <th class="text-center">ACCION</th>
                                     </tr>
                                 </thead>
@@ -73,7 +73,7 @@
                                         <td class="text-center"><%= user.getIdLogin()%></td>
                                         <td class="text-center"><%= user.getUsuario()%></td>
                                         <td class="text-center"><%= user.getPassword()%></td>
-                                        <td class="text-center"><%= user.getIdVendedor()%></td>
+                                        <td class="text-center"><%= user.getIdVendedor()+"-"+user.getNombre()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorUsuarioCRUD?accion=editar&id=<%= user.getIdLogin()%>">Editar</a>
                                             <a class="btn btn-danger" href="ControladorUsuarioCRUD?accion=eliminar&id=<%= user.getIdLogin()%>">Eliminar</a>

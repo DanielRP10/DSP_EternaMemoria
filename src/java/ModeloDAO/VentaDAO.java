@@ -29,7 +29,7 @@ public class VentaDAO implements CRUDVentas{
     @Override
     public List listar() {
         ArrayList<Venta>list=new ArrayList<>();
-        String sql="select * from Ventas";
+        String sql="SELECT * from Ventas vs inner join clientes cli on vs.idCliente=cli.idcliente";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -40,6 +40,7 @@ public class VentaDAO implements CRUDVentas{
                 vent.setFecha(rs.getDate("fecha").toLocalDate());
                 vent.setMontoTotal(rs.getDouble("montoTotal"));
                 vent.setIdCliente(rs.getInt("idCliente"));
+                vent.setNombreCliente(rs.getString("nombre"));
                 vent.setIdContrato(rs.getInt("idContrato"));
                 list.add(vent);
             }

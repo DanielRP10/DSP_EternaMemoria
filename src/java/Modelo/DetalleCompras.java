@@ -15,6 +15,7 @@ public class DetalleCompras {
     float precio;
     int idCompra;
     int idProducto;
+    String nombrePro;
 
     public DetalleCompras(int idDetalleCompra, int cantidad, float precio, int idCompra, int idProducto) {
         this.idDetalleCompra = idDetalleCompra;
@@ -65,6 +66,14 @@ public class DetalleCompras {
 
     public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public String getNombrePro() {
+        return nombrePro;
+    }
+
+    public void setNombrePro(String nombrePro) {
+        this.nombrePro = nombrePro;
     }
     
     

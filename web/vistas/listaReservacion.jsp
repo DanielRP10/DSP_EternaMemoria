@@ -56,7 +56,7 @@
                                         <th class="text-center">ID RESERVACION</th>
                                         <th class="text-center">FECHA</th>
                                         <th class="text-center">HORA</th>
-                                        <th class="text-center">ID CLIENTE</th>
+                                        <th class="text-center">NOMBRE CLIENTE</th>
                                         <th class="text-center">ACCION</th>
                                     </tr>
                                 </thead>
@@ -73,7 +73,7 @@
                                         <td class="text-center"><%= res.getIdReservacion()%></td>
                                         <td class="text-center"><%= res.getFecha()%></td>
                                         <td class="text-center"><%= res.getHora()%></td>
-                                        <td class="text-center"><%= res.getIdCliente()%></td>
+                                        <td class="text-center"><%= res.getIdCliente()+"-"+res.getNombreCliente()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorReservacion?accion=editar&id=<%= res.getIdReservacion()%>">Editar</a>
                                             <a class="btn btn-danger" href="ControladorReservacion?accion=eliminar&id=<%= res.getIdReservacion()%>">Eliminar</a>

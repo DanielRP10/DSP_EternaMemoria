@@ -57,8 +57,8 @@
                                         <th class="text-center">FECHA CONTRATO</th>
 <!--                                        <th class="text-center">ID CLIENTE</th>-->
                                         <th class="text-center">NOMBRE CLIENTE</th>
-                                        <th class="text-center">ID PLAN</th>
-                                        <th class="text-center">ID VENDEDOR</th>
+                                        <th class="text-center">NOMBRE PLAN</th>
+                                        <th class="text-center">NOMBRE VENDEDOR</th>
                                         <th class="text-center">ACCION</th>
                                     </tr>
                                 </thead>
@@ -75,9 +75,11 @@
                                         <td class="text-center"><%= contra.getIdContrato()%></td>
                                         <td class="text-center"><%= contra.getFechaContrato()%></td>
 <!--                                        <td class="text-center"><//%= contra.getIdCliente()%></td>-->
-                                        <td class="text-center"><%= contra.getNombreCliente()%></td>
-                                        <td class="text-center"><%= contra.getIdPlan()%></td>
-                                        <td class="text-center"><%= contra.getIdVendedor()%></td>
+                                        <td class="text-center"><%= contra.getIdCliente()+"-"+contra.getNombreCliente()%></td>
+<!--                                        <td class="text-center"><//%= contra.getIdPlan()%></td>-->
+                                        <td class="text-center"><%= contra.getIdPlan()+"-"+contra.getNombrePlan()%></td>
+<!--                                        <td class="text-center"><//%= contra.getIdVendedor()%></td>-->
+                                        <td class="text-center"><%= contra.getIdVendedor()+"-"+contra.getNombreVendedor()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorContrato?accion=editar&id=<%= contra.getIdContrato()%>">Editar</a>
                                             <a class="btn btn-danger" href="ControladorContrato?accion=eliminar&id=<%= contra.getIdContrato()%>">Eliminar</a>

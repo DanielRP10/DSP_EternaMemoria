@@ -56,7 +56,7 @@
                                         <th class="text-center">ID VENTA</th>
                                         <th class="text-center">FECHA</th>
                                         <th class="text-center">MONTO</th>
-                                        <th class="text-center">ID CLIENTE</th>
+                                        <th class="text-center">NOMBRE CLIENTE</th>
                                         <th class="text-center">ID CONTRATO</th>
                                         <th class="text-center">ACCIONES</th>
                                     </tr>
@@ -74,8 +74,8 @@
                                     <tr>
                                         <td class="text-center"><%= vent.getIdVenta()%></td>
                                         <td class="text-center"><%= vent.getFecha()%></td>
-                                        <td><%= vent.getMontoTotal()%></td>
-                                        <td class="text-center"><%= vent.getIdCliente()%></td>
+                                        <td class="text-center"><%= vent.getMontoTotal()%></td>
+                                        <td class="text-center"><%= vent.getIdCliente()+"-"+vent.getNombreCliente()%></td>
                                         <td class="text-center"><%= vent.getIdContrato()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorVentas?accion=editar&id=<%= vent.getIdVenta()%>">Editar</a>

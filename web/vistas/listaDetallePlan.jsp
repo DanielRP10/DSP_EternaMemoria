@@ -58,8 +58,8 @@
                                         <th class="text-center">NOMBRE</th>
                                         <th class="text-center">DESCRIPCION</th>
                                         <th class="text-center">CANTIDAD</th>
-                                        <th class="text-center">ID PRODUCTO</th>
-                                        <th class="text-center">ID PLAN</th>
+                                        <th class="text-center">NOMBRE PRODUCTO</th>
+                                        <th class="text-center">NOMBRE PLAN</th>
                                         <th class="text-center">ACCION</th>
                                     </tr>
                                 </thead>
@@ -77,8 +77,8 @@
                                         <td class="text-center"><%= dp.getNombreDetallePlan()%></td>
                                         <td class="text-center"><%= dp.getDescripcion()%></td>
                                         <td class="text-center"><%= dp.getCantidad()%></td>
-                                        <td class="text-center"><%= dp.getIdProducto()%></td>
-                                        <td class="text-center"><%= dp.getIdPlan()%></td>
+                                        <td class="text-center"><%= dp.getIdProducto()+"-"+dp.getNombreProducto()%></td>
+                                        <td class="text-center"><%= dp.getIdPlan()+"-"+dp.getNombrePlan()%></td>
                                         <td class="text-center">
                                             <a class="btn btn-warning" href="ControladorDetallePlan?accion=editar&id=<%= dp.getIdDetallePlanes()%>">Editar</a>
                                             <a class="btn btn-danger" href="ControladorDetallePlan?accion=eliminar&id=<%= dp.getIdDetallePlanes()%>">Eliminar</a>

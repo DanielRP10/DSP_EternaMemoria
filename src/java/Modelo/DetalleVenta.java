@@ -13,6 +13,7 @@ public class DetalleVenta {
     String detalleVenta;
     int idVenta;
     int idProducto;
+    String nombrePro;
 
     public DetalleVenta(int idDetalleVentas, String detalleVenta, int idVenta, int idProducto) {
         this.idDetalleVentas = idDetalleVentas;
@@ -55,6 +56,14 @@ public class DetalleVenta {
 
     public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public String getNombrePro() {
+        return nombrePro;
+    }
+
+    public void setNombrePro(String nombrePro) {
+        this.nombrePro = nombrePro;
     }
     
     

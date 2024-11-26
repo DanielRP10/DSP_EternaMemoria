@@ -14,7 +14,9 @@ public class DetallePlan {
     String descripcion;
     int cantidad;
     int idProducto;
+    String nombreProducto;
     int idPlan;
+    String nombrePlan;
 
     public DetallePlan() {
     }
@@ -67,12 +69,28 @@ public class DetallePlan {
         this.idProducto = idProducto;
     }
 
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
+    }
+
     public int getIdPlan() {
         return idPlan;
     }
 
     public void setIdPlan(int idPlan) {
         this.idPlan = idPlan;
+    }
+
+    public String getNombrePlan() {
+        return nombrePlan;
+    }
+
+    public void setNombrePlan(String nombrePlan) {
+        this.nombrePlan = nombrePlan;
     }
 
     

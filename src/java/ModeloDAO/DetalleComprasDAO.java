@@ -29,7 +29,7 @@ public class DetalleComprasDAO implements CRUDDetalleCompras {
     @Override
     public List listar() {
         ArrayList<DetalleCompras> list = new ArrayList<>();
-        String sql = "SELECT * FROM DetalleCompras";
+        String sql = "SELECT * FROM DetalleCompras dtp inner join productos pro on dtp.idProducto=pro.idProducto";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -41,6 +41,7 @@ public class DetalleComprasDAO implements CRUDDetalleCompras {
                 detalleCompra.setPrecio(rs.getFloat("precio"));
                 detalleCompra.setIdCompra(rs.getInt("idCompra"));
                 detalleCompra.setIdProducto(rs.getInt("idProducto"));
+                detalleCompra.setNombrePro(rs.getString("nombre"));
                 list.add(detalleCompra);
             }
         } catch (Exception e) {

@@ -70,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col-md-6 d-flex flex-column align-items-center">
-                            <h3>Reporte de planes</h3>
+                            <h3>Reporte de Ventas</h3>
                             <div class="w-100">
                                 <canvas id="ventasChart" style="max-height: 300px;"></canvas>
                             </div>

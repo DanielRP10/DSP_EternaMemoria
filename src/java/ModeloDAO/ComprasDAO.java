@@ -29,7 +29,7 @@ public class ComprasDAO implements CRUDCompras {
     @Override
     public List<Compras> listar() {
         ArrayList<Compras> list = new ArrayList<>();
-        String sql = "SELECT * FROM Compras";
+        String sql = "SELECT * FROM Compras com inner join clientes cli on com.idCliente=cli.idcliente";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -40,6 +40,7 @@ public class ComprasDAO implements CRUDCompras {
                 comp.setFecha(rs.getString("fecha"));
                 comp.setMontoTotal(rs.getFloat("montoTotal"));
                 comp.setIdCliente(rs.getInt("idCliente"));
+                comp.setNombreCliente(rs.getString("nombre"));
                 comp.setIdContrato(rs.getInt("idContrato"));
                 list.add(comp);
             }

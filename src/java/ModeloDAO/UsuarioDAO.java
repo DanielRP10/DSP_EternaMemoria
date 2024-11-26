@@ -56,7 +56,7 @@ public class UsuarioDAO implements Validar{
     @Override
     public List listarUsuario() {
         ArrayList<Usuario>list = new  ArrayList<>();
-        String sql = "SELECT * FROM usuarios";
+        String sql = "SELECT * FROM usuarios us inner join vendedores ven on us.idVendedor=ven.idVendedor";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -67,6 +67,7 @@ public class UsuarioDAO implements Validar{
                 usuario.setUsuario(rs.getString("usuario"));
                 usuario.setPassword(rs.getString("password"));
                 usuario.setIdVendedor(rs.getInt("idVendedor"));
+                usuario.setNombre(rs.getString("nombre"));
                 list.add(usuario);
             }
         } catch (Exception e) {

@@ -16,6 +16,7 @@ public class Reservacion {
     LocalDate fecha;
     LocalTime hora;
     int idCliente;
+    String nombreCliente;
     int totalReservaciones;
     int anio; 
 
@@ -59,6 +60,14 @@ public class Reservacion {
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
     public int getTotalReservaciones() {
