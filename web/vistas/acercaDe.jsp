@@ -144,6 +144,15 @@
                       <li>Interfaz fácil de usar</li>
                     </ul>
                   </div>
+                    <div class="info-card">
+                    <h3>Integrantes</h3>
+                    <ul>
+                      <li>Miltón Azareel Cuadrs Mezquita</li>
+                      <li>Daniel Alexander Reyes Pérez</li>
+                      <li>Gilberto José Menéndez Pérez</li>
+                      <li>Jennifer Tatiana Guerra Figueroa</li>
+                    </ul>
+                  </div>
                 </div>
         </div>
     </div>
